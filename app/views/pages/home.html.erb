@@ -13,12 +13,12 @@
     <div class="jewel-card">
           <% @jewels.each do |jewel| %>
             <div class="list-group-item">
-            <%= image_tag jewel.image_links, class:"poster-img" %>
+            <%# <%= image_tag jewel.image_links, class:"poster-img" %>
               <div class="jewel-card-text">
-                <h4><strong><%= jewel.name %> • <%= jewel.price_per_day %><i class="fa-solid fa-euro-sign"></i></strong></h4>
+                <h4><strong><%= jewel.name%> • <%= jewel.price_per_day %><i class="fa-solid fa-euro-sign"></i></strong></h4>
                 <p class="overflow-ellipsis"><%= jewel.brand %></p>
                 <div class="jewel-card-footer text-muted mx-auto">
-              <button type="button" class="btn-flat btn-outline-secondary">Show!</button>
+              <button type="button" class="btn-flat btn-outline-secondary"><%= link_to "Show!", jewel_path(jewel) %></button>
               </div>
               </div>
             </div>
