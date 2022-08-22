@@ -7,5 +7,4 @@ class Jewel < ApplicationRecord
   validates :price_per_day, presence: true
   validates :category, acceptance: { accept: ['Ring', 'Earring', 'Necklace', 'Bracelet', 'Watch'] }
   validates :photo, presence: true
-  has_one_attached :photo
 end
