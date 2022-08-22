@@ -1,6 +1,6 @@
 class JewelsController < ApplicationController
   def index
-    @jewel = Jewel.all
+    @jewels = Jewel.all
   end
 
   def show
