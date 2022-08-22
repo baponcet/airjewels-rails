@@ -1,4 +1,4 @@
-.sneaker-cards {
+.jewel-cards {
   display: grid;
   flex-grow: 1;
   text-align: center;
@@ -8,7 +8,7 @@
   margin-bottom: 3%;
 }
 
-.sneaker-card {
+.jewel-card {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin: 2%;
@@ -16,34 +16,34 @@
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 100px) and (max-width: 768px) {
-  .sneaker-card {
+  .jewel-card {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 767px) and (max-width: 1700px) {
-  .sneaker-card {
+  .jewel-card {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-.sneaker-cards a {
+.jewel-cards a {
   color: rgb(255, 255, 255);
 }
 
-.sneaker-card .poster-img {
+.jewel-card .poster-img {
   width: 100%;
   object-fit: scale-down;
   margin-top: 0px;
   border-radius:10px
 }
 
-.sneaker-cards btn {
+.jewel-cards btn {
   justify-content: center;
 }
 
-.sneaker-cards .list-group-item {
+.jewel-cards .list-group-item {
   margin: 2%;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   height: 450px;
@@ -63,7 +63,7 @@
     }
 }
 
-.sneaker-card-text {
+.jewel-card-text {
   padding: 4%;
   text-align: left;
   height: 50%;
@@ -74,7 +74,7 @@
   text-overflow: ellipsis;
 }
 
-.card-show-sneaker {
+.card-show-jewel {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 80%;
@@ -86,7 +86,7 @@
     }
 }
 
-.card-show-sneaker-text {
+.card-show-jewel-text {
   padding: 4%;
   text-align: left;
   height: 50%;
@@ -106,7 +106,7 @@ border-radius:10px;
 margin-left: 1%
 }
 
-.sneaker-card-footer {
+.jewel-card-footer {
   background: transparent;
   border-top: 0px;
 }
