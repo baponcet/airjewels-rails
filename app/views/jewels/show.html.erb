@@ -1,2 +1,6 @@
-<h1>Jewels#show</h1>
-<p>Find me in app/views/jewels/show.html.erb</p>
+<h1><%= @jewel.name %></h1>
+<h2><%= @jewel.brand %></h2>
+<p><%= @jewel.price_per_day %></p>
+<p><%= @jewel.category %></p>
+
+<%= link_to "All our jewels", jewels_index_path %>
