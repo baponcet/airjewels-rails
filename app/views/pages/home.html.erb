@@ -5,12 +5,24 @@
 </div>
 
 <div class="container" >
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="jewel-cards">
+    <div class="list-text">
+      <h3>jewels list</h3>
+    </div>
+
+    <div class="jewel-card">
+          <% @jewels.each do |jewel| %>
+            <div class="list-group-item">
+            <%= image_tag jewel.image_links, class:"poster-img" %>
+              <div class="jewel-card-text">
+                <h4><strong><%= jewel.name %> • <%= jewel.price_per_day %><i class="fa-solid fa-euro-sign"></i></strong></h4>
+                <p class="overflow-ellipsis"><%= jewel.brand %></p>
+                <div class="jewel-card-footer text-muted mx-auto">
+              <button type="button" class="btn-flat btn-outline-secondary">Show!</button>
+              </div>
+              </div>
+            </div>
+          <% end %>
     </div>
   </div>
 </div>
