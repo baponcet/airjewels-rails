@@ -1,6 +1,4 @@
 class JewelsController < ApplicationController
-  before_action :authenticate_user!
-
   def index
     @jewels = Jewel.all
   end
@@ -17,7 +15,7 @@ class JewelsController < ApplicationController
     @jewel = Jewel.new(jewels_params)
     @jewel.user = current_user
     if @jewel.save
-      redirect_to jewel_path(@jewel)
+      redirect_to jewel_path(@jewel), notice: "Jewel added"
     else
       render :new, status: :unprocessable_entity
     end
