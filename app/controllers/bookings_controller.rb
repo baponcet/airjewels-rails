@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
     @jewel = Jewel.find(params[:jewel_id])
     @user = current_user
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -13,6 +14,7 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.user = @user
     @booking.jewel = @jewel
+    authorize @booking
     if @booking.save
       redirect_to jewel_path(@jewel), notice: "Congrats ! Your booking is validated"
     else
