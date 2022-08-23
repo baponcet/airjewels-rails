@@ -3,6 +3,12 @@
   <div class="row" style= "margin-top: 2% color:gray">
 
 
+<%= link_to "Edit this jewel", edit_jewel_path(@jewel) if policy(@jewel).edit?%>
+<% if policy(@jewel).destroy? %>
+  <%= link_to "Delete", jewel_path(@jewel), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<% end %>
+
+
       <div class="col d-flex" style="justify-items:center">
          <%if @jewel.photos.length > 1%>
           <div id="carouselExampleControls-<%= @jewel.id %>" class="carousel slide" data-bs-interval="false" >
