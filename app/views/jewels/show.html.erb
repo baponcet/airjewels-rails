@@ -6,3 +6,8 @@
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 <%= link_to "All our jewels", jewels_path %>
+
+<%= link_to "Edit this jewel", edit_jewel_path(@jewel) if policy(@jewel).edit?%>
+<% if policy(@jewel).destroy? %>
+  <%= link_to "Delete", jewel_path(@jewel), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<% end %>
