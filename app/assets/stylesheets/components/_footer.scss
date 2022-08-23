@@ -1,3 +1,7 @@
+.footer {
+  height: 150px;
+}
+
 footer {
   width: 100%;
   padding: 30px 0;
@@ -5,4 +9,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  bottom: 0;
+  margin-top: 200px;
 }

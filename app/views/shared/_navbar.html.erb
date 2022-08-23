@@ -1,9 +1,32 @@
-<div class="navbar">
-  <div class="nav-container">
-    <a href="/" id="logo">AirJewels</a>
-    <div class="buttons-right">
-      <a href="/" class="btn-secondary-light paragraph_medium_font">Rent jewels</a>
-      <a href="/" class="btn-secondary paragraph_medium_font">Login</a>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "/", class: "navbar-brand" do %>
+      <p id="logo">AirJewels</p>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="align-self-center">
+            <%= link_to "Rent jewels", new_jewel_path, class: "btn-secondary-light paragraph_medium_font" %>
+          </li>
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My dashboard", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "btn-secondary paragraph_medium_font" %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

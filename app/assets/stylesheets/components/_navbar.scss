@@ -1,13 +1,18 @@
 .navbar {
-  background-color: $background-white;
-  width: 100%;
-  border-bottom: solid 1px rgba($color: $font-black, $alpha: 0.2);
+  padding: 10px 30px;
 }
 
-.nav-container {
+.navbar-lewagon {
+  justify-content: space-between;
+  background: $background-white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
   display: flex;
   align-items: center;
-  margin: 0 40px;
-  justify-content: space-between;
-  width: 100%;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
 }
