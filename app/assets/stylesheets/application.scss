@@ -12,41 +12,42 @@
 @import "pages/index";
 
 // Font family
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
-
-$primary-green: #12784A;
-$primary-hover-green: #125738;
-$background-grey: #DDDDDD;
-$background-white: #FFFFFF;
-$font-black: #1F1F1F;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
 
 body {
   font-family: 'Open Sans', sans-serif;
   color: $font-black;
+  background-color: $background-white;
+  width: auto;
+  margin: 0 auto; 
 }
 
 .hero_font {
   font-weight: 700;
   line-height: 88px;
   font-size: 80px;
+  letter-spacing: -3%;
 }
 
 .heading_large_font {
   font-weight: 700;
   line-height: 48px;
   font-size: 40px;
+  letter-spacing: -3%;
 }
 
 .heading_medium_font {
   font-weight: 700;
   line-height: 32px;
   font-size: 24px;
+  letter-spacing: -3%;
 }
 
 .heading_small_font {
   font-weight: 700;
   line-height: 24px;
   font-size: 20px;
+  letter-spacing: -3%;
 }
 
 .paragraph_large_font {
@@ -64,7 +65,7 @@ body {
   font-size: 14px;
 }
 
-.labe_font {
+.label_font {
   font-weight: 600;
   font-size: 14px;
 }

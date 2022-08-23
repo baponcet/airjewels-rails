@@ -1,28 +1,94 @@
-<div class="banner" style="background-image: url('https://st.depositphotos.com/1765462/1279/v/450/depositphotos_12798906-stock-illustration-abstract-wallpaper-vector-background.jpg')">
-  <div class="container">
-  <h1>Rent <strong>Jewels</strong> !</h1>
-  </div>
-</div>
+<%= render "shared/banner" %>
 
-<div class="container" >
-  <div class="jewel-cards">
-    <div class="list-text">
-      <h3>jewels list</h3>
+<div class="container">
+  <div class="d-flex justify-content-between mt-5 mb-5">
+    <div class="card-category card-category-watch">
+      <p class="heading_medium_font">Watch</p>
     </div>
+    <div class="card-category card-category-earing">
+      <p class="heading_medium_font">Earing</p>
+    </div>
+    <div class="card-category card-category-bracelet">
+      <p class="heading_medium_font">Bracelet</p>
+    </div>
+    <div class="card-category card-category-ring">
+      <p class="heading_medium_font">Ring</p>
+    </div>
+    <div class="card-category card-category-necklace">
+      <p class="heading_medium_font">Necklace</p>
+    </div>
+  </div>
 
-    <div class="jewel-card">
-          <% @jewels.each do |jewel| %>
-            <div class="list-group-item">
-            <%# <%= image_tag jewel.image_links, class:"poster-img" %>
-              <div class="jewel-card-text">
-                <h4><strong><%= jewel.name%> • <%= jewel.price_per_day %><i class="fa-solid fa-euro-sign"></i></strong></h4>
-                <p class="overflow-ellipsis"><%= jewel.brand %></p>
-                <div class="jewel-card-footer text-muted mx-auto">
-              <button type="button" class="btn-flat btn-outline-secondary"><%= link_to "Show!", jewel_path(jewel) %></button>
-              </div>
-              </div>
-            </div>
-          <% end %>
+  <p class="heading_medium_font">
+    Our best jewels available
+  </p>
+
+  <div class="d-flex justify-content-between">
+    <div class="main-card">
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1606744188285-d0a49e58f538?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Rolex image">
+      </div>
+      <div class="card-info">
+        <div class="card-info-top">
+          <div class="card-text">
+            <p class="heading_small_font">
+              Rolex GMT 940
+            </p>
+            <p class="paragraph_small_font">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+        </div>
+          <p class="badge label_font">Watch</p>
+        </div>
+        <div class="card-info-bottom">
+          <a href="#" class="btn-secondary paragraph_medium_font">Learn more</a>
+          <p class="label_font m-0 align-self-end">€40 per day</p>
+        </div>
+      </div>
+    </div>
+    <div class="main-card">
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1606744188285-d0a49e58f538?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Rolex image">
+      </div>
+      <div class="card-info">
+        <div class="card-info-top">
+          <div class="card-text">
+            <p class="heading_small_font">
+              Rolex GMT 940
+            </p>
+            <p class="paragraph_small_font">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+        </div>
+          <p class="badge label_font">Watch</p>
+        </div>
+        <div class="card-info-bottom">
+          <a href="#" class="btn-secondary paragraph_medium_font">Learn more</a>
+          <p class="label_font m-0 align-self-end">€40 per day</p>
+        </div>
+      </div>
+    </div>
+    <div class="main-card">
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1606744188285-d0a49e58f538?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Rolex image">
+      </div>
+      <div class="card-info">
+        <div class="card-info-top">
+          <div class="card-text">
+            <p class="heading_small_font">
+              Rolex GMT 940
+            </p>
+            <p class="paragraph_small_font">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+        </div>
+          <p class="badge label_font">Watch</p>
+        </div>
+        <div class="card-info-bottom">
+          <a href="#" class="btn-secondary paragraph_medium_font">Learn more</a>
+          <p class="label_font m-0 align-self-end">€40 per day</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
