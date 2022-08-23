@@ -2,5 +2,7 @@
 <h2><%= @jewel.brand %></h2>
 <p>Only <%=  @jewel.price_per_day %> per day</p>
 <p><%= @jewel.category %></p>
-
+<% @jewel.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 <%= link_to "All our jewels", jewels_path %>
