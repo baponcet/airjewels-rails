@@ -13,8 +13,11 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.user = @user
     @booking.jewel = @jewel
-    @booking.save!
-    redirect_to jewel_path(@jewel), notice: "Booking validated"
+    if @booking.save
+      redirect_to jewel_path(@jewel), notice: "Congrats ! Your booking is validated"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def booking_params
