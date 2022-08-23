@@ -1,6 +1,15 @@
 <h1>Dashboard</h1>
+
+<h2>Your bookings</h2>
 <% @bookings.each do |booking| %>
-<h2><%= booking.jewel.name %></h2>
-<%= booking.starting_date %>
-<%= booking.ending_date %>
+<h3><%= booking.jewel.name %></h2>
+<p><%= booking.starting_date %></p>
+<p><%= booking.ending_date %></p>
+<% end %>
+
+<h2>Your jewels</h2>
+<% @user.jewels.each do |jewel| %>
+<h3><%= jewel.name %></h3>
+<p><%= jewel.brand %></p>
+<p><%= jewel.category %></p>
 <% end %>
