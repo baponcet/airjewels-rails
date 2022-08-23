@@ -31,8 +31,11 @@ class JewelsController < ApplicationController
 
   def update
     authorize @jewel
-    @jewel.update(jewels_params)
-    redirect_to jewel_path(@jewel), notice: "Jewel updated"
+    if @jewel.update(jewels_params)
+      redirect_to jewel_path(@jewel), notice: "Jewel updated"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
