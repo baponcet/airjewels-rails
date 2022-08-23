@@ -8,4 +8,6 @@
 <%= link_to "All our jewels", jewels_path %>
 
 <%= link_to "Edit this jewle", edit_jewel_path(@jewel) if policy(@jewel).edit?%>
-<%= button_to "Destroy this jewel", @jewel, method: :delete if policy(@jewel).destroy? %>
+<% if policy(@jewel).destroy? %>
+  <%= link_to "Delete", jewel_path(@jewel), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<% end %>
