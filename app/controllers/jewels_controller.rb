@@ -24,6 +24,22 @@ class JewelsController < ApplicationController
     end
   end
 
+  def edit
+    @jewel = Jewel.find(params[:id])
+  end
+
+  def update
+    @jewel = Jewel.find(params[:id])
+    @jewel.update(jewels_params)
+    redirect_to jewel_path(@jewel), notice: "Jewel updated"
+  end
+
+  def destroy
+    @jewel = Jewel.find(params[:id])
+    @jewel.destroy
+    redirect_to root_path, status: :see_other
+  end
+
   private
 
   def jewels_params
