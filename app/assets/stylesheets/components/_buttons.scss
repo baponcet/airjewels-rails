@@ -1,0 +1,46 @@
+.btn-primary {
+  padding: 6px 25px;
+  background-color: $primary-green;
+  border-radius: $border-radius-buttons;
+  color: $background-white;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    color: $background-white;
+    background-color: $primary-hover-green;
+  }
+}
+
+.btn-secondary {
+  padding: 5px 25px;
+  border-radius: $border-radius-buttons;
+  background-color: $secondary-green;
+  color: $background-white;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    color: $background-white;
+    background-color: $primary-hover-green;
+  }
+}
+
+.btn-secondary-light {
+  padding: 5px 25px;
+  border-radius: $border-radius-buttons;
+  background-color: none;
+  color: $font-black;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    color: $primary-green;
+  }
+}
+
+.badge {
+  padding: 5px 15px;
+  border-radius: $border-radius-badge;
+  background-color: $background-grey;
+  color: $font-black;
+  text-decoration: none;
+  transition: 0.2s
+}
