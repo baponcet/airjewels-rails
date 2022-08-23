@@ -6,5 +6,5 @@ class Jewel < ApplicationRecord
   validates :name, presence: true
   validates :price_per_day, presence: true
   validates :category, inclusion: { in: ['Ring', 'Earring', 'Necklace', 'Bracelet', 'Watch'] }
-  validates :photo, presence: true
+  validates :photos, presence: true
 end
