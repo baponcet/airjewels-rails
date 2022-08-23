@@ -24,6 +24,11 @@ body {
   position: relative;
 }
 
+p {
+  font-weight: 400;
+  font-size: 14px;
+}
+
 .text-ellipsis{
   text-overflow:ellipsis;
   overflow:hidden;

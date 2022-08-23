@@ -5,6 +5,10 @@
   color: $background-white;
   text-decoration: none;
   transition: 0.2s ease-in-out;
+  font-weight: 700;
+  line-height: 24px;
+  font-size: 20px;
+  letter-spacing: -3%;
   &:hover {
     color: $background-white;
     background-color: $primary-hover-green;
@@ -18,6 +22,8 @@
   color: $background-white;
   text-decoration: none;
   transition: 0.2s ease-in-out;
+  font-weight: 400;
+  font-size: 16px;
   &:hover {
     color: $background-white;
     background-color: $primary-hover-green;
@@ -31,6 +37,8 @@
   color: $font-black;
   text-decoration: none;
   transition: 0.2s ease-in-out;
+  font-weight: 400;
+  font-size: 16px;
   &:hover {
     color: $primary-green;
   }
@@ -42,5 +50,7 @@
   background-color: $background-grey;
   color: $font-black;
   text-decoration: none;
-  transition: 0.2s
+  transition: 0.2s;
+  font-weight: 600;
+  font-size: 14px;
 }
