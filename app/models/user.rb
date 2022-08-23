@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :jewels, dependent: :destroy
   has_many :bookings
-  # has_many :jewels, through: :bookings
+  validates :first_name, :last_name, presence: true
 end
