@@ -1,12 +1,6 @@
 class BookingsController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def index
-    @jewels = policy_scope(Jewel)
-    @user = current_user
-    @bookings = policy_scope(Booking)
-  end
-
   def new
     @jewel = Jewel.find(params[:jewel_id])
     @user = current_user

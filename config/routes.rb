@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "pages#home"
   devise_for :users
-  get 'users/:user_id/dashboard', to: "bookings#index"
+  get '/dashboard', to: "pages#dashboard"
   resources :jewels, only: %i[show index new create edit update destroy] do
     resources :bookings, only: %i[new create]
   end
