@@ -11,3 +11,5 @@
 <% if policy(@jewel).destroy? %>
   <%= link_to "Delete", jewel_path(@jewel), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 <% end %>
+
+<%= render 'form', jewel: @jewel  %>

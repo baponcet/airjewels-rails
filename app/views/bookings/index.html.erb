@@ -1,0 +1,6 @@
+<h1>Dashboard</h1>
+<% @bookings.each do |booking| %>
+<h2><%= booking.jewel.name %></h2>
+<%= booking.starting_date %>
+<%= booking.ending_date %>
+<% end %>
