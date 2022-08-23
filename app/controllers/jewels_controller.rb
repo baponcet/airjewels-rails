@@ -1,10 +1,11 @@
 class JewelsController < ApplicationController
+  before_action :set_jewel, only: %i[show edit update destroy]
+
   def index
     @jewels = policy_scope(Jewel)
   end
 
   def show
-    @jewel = Jewel.find(params[:id])
     authorize @jewel
   end
 
@@ -25,17 +26,17 @@ class JewelsController < ApplicationController
   end
 
   def edit
-    @jewel = Jewel.find(params[:id])
+    authorize @jewel
   end
 
   def update
-    @jewel = Jewel.find(params[:id])
+    authorize @jewel
     @jewel.update(jewels_params)
     redirect_to jewel_path(@jewel), notice: "Jewel updated"
   end
 
   def destroy
-    @jewel = Jewel.find(params[:id])
+    authorize @jewel
     @jewel.destroy
     redirect_to root_path, status: :see_other
   end
@@ -44,5 +45,9 @@ class JewelsController < ApplicationController
 
   def jewels_params
     params.require(:jewel).permit(:name, :price_per_day, :brand, :category, :user_id, :comment, photos: [])
+  end
+
+  def set_jewel
+    @jewel = Jewel.find(params[:id])
   end
 end
