@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="align-self-center">
-            <%= link_to "Rent jewels", "#", class: "btn-secondary-light paragraph_medium_font" %>
+            <%= link_to "Rent jewels", new_jewel_path, class: "btn-secondary-light paragraph_medium_font" %>
           </li>
         <% if user_signed_in? %>
           <li class="nav-item dropdown">

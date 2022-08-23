@@ -93,3 +93,11 @@
   background-size: cover;
   background-position: center;
 }
+
+// Cards container
+
+.cards-container {
+  display: grid;
+  grid-template-columns:
+  1fr 1fr 1fr;
+}

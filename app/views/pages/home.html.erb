@@ -25,7 +25,7 @@
 
   <div class="row d-flex justify-content-between">
     <% @jewels.each do |jewel| %>
-      <div class="col-4 mt-5">
+      <div class="col-4 mt-5 d-flex justify-content-center">
         <div class="main-card">
           <div class="img-card">
             <%= cl_image_tag(jewel.photos.first.key) %>
