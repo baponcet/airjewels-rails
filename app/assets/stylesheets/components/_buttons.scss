@@ -18,8 +18,9 @@
 .btn-secondary {
   padding: 8px 25px;
   border-radius: $border-radius-buttons;
-  background-color: $secondary-green;
-  color: $background-white;
+  background-color: none;
+  color: $primary-green;
+  border: 1px solid $primary-green;
   text-decoration: none;
   transition: 0.2s ease-in-out;
   font-weight: 400;
