@@ -8,7 +8,6 @@
   <%= link_to "Delete", jewel_path(@jewel), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 <% end %>
 
-
       <div class="col d-flex" style="justify-items:center">
          <%if @jewel.photos.length > 1%>
           <div id="carouselExampleControls-<%= @jewel.id %>" class="carousel slide" data-bs-interval="false" >
@@ -45,7 +44,32 @@
         <p><%= @jewel.comment %></p>
         <br>
       <div class="col d-flex justify-content-between">
-        <h3><strong><%= link_to "Book now", new_jewel_booking_path(@jewel), class: ".btn-primary" %></strong></h3>
+        <%= link_to "Book now", new_jewel_booking_path(@jewel), class: "btn-primary" %>
+        <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Booking</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <div class="container">
+                  <div class="new-lists">
+                    <div class="new-list">
+                      <h1>Book <strong>jewels</strong> !</h1>
+                        <%= simple_form_for [ @jewel, @booking ] do |f| %>
+                          <%= f.input :starting_date, as: :date, html5: true %>
+                          <%= f.input :ending_date, as: :date, html5: true  %>
+                          <%= f.submit "Book now", class: "btn btn-secondary" %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         <h4><strong><%= link_to "All our jewels", jewels_path, class: "badge" %></strong></h4>
         <%= link_to "Edit this jewel", edit_jewel_path(@jewel) if policy(@jewel).edit?%>
         <% if policy(@jewel).destroy? %>
@@ -55,27 +79,3 @@
     </div>
     </div>
   </div>
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Booking</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <div class="container">
-        <div class="new-lists">
-          <div class="new-list">
-            <%= simple_form_for [ @jewel, @booking ] do |f| %>
-              <%= f.input :starting_date, as: :date, html5: true %>
-              <%= f.input :ending_date, as: :date, html5: true  %>
-              <%= f.submit "Book", class: "btn btn-primary" '[data-bs-toggle="modal"]' '[data-bs-target="#staticBackdrop]'%>
-            <% end %>
-          </div>
-        </div>
-       </div>
-      </div>
-    </div>
-  </div>
-</div>
