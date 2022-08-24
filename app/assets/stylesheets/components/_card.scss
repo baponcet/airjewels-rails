@@ -14,6 +14,31 @@
   margin: 3rem 0;
 }
 
+@media(max-width: 1400px) {
+  .cards-display-main {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media(max-width: 992px) {
+  .cards-display-main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cards-display-category {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .cards-display-main {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-display-category {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 // Main card
 .main-card {
