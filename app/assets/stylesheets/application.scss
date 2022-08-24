@@ -25,6 +25,17 @@ body {
   position: relative;
 }
 
+.img-show-jewel {
+  height: 500px;
+  width: 100%;
+}
+
+.img-show-jewel img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .text-ellipsis{
   text-overflow:ellipsis;
   overflow:hidden;

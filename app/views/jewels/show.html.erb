@@ -1,16 +1,14 @@
 <div class="container" style= "margin-top:2%">
 <div class= "d-flex justify-content-between margin-bottom: 5% ">
-  <h1><%= @jewel.category%></h1>
   <%= link_to "Edit this jewel", edit_jewel_path(@jewel) if policy(@jewel).edit?%>
   <% if policy(@jewel).destroy? %>
     <%= link_to "Delete", jewel_path(@jewel), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   <% end %>
-  <p style= "color: green"><strong><%= link_to "All our jewels", root_path %></strong></p>
   </div>
-  <div class="row" style= "margin-top: 5% color:gray">
+  <div class="row" style= "margin-top: 5%">
 
-      <div class="col d-flex" style="justify-items:center">
-         <%if @jewel.photos.length > 1%>
+      <div class="col-6 d-flex" style="justify-items:center">
+         <% if @jewel.photos.length > 1 %>
           <div id="carouselExampleControls-<%= @jewel.id %>" class="carousel slide" data-bs-interval="false" >
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -30,42 +28,43 @@
             </button>
           </div>
             <%else%>
-              <div class="carousel-item active d-flex justify-content-center">
-                <div>
-                  <%= cl_image_tag @jewel.photos.first.key, height: 300, width: 400, crop: :fill %>
+              <%# <div class="carousel-item active d-flex justify-content-center"> %>
+                <div class="img-show-jewel">
+                  <%= cl_image_tag @jewel.photos.first.key, crop: :fill %>
                 </div>
-              </div>
+              <%# </div> %>
            <% end %>
       </div>
-      <div class="col">
-        <h1><%= @jewel.name %></h1>
+      <div class="col-6 d-flex flex-column justify-content-between">
+      <div>
+        <h1 class="pb-3"><%= @jewel.name %></h1>
         <h2><%= @jewel.brand %></h2>
-        <br>
-        <h3>Only <strong><%=  @jewel.price_per_day %></strong>$ per day</h3>
+        <h3 class="pb-3"><strong>€<%=  @jewel.price_per_day.round %></strong> per day</h3>
         <p><%= @jewel.comment %></p>
-        <br>
-      <div class="col d-flex justify-content-between">
-        <%#= link_to "Book now", new_jewel_booking_path(@jewel), class: "btn-primary" %>
+      </div>
+      <div class="d-flex justify-content-between align-items-end w-100">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-           Book
+          Book
         </button>
+        <%= link_to "All our jewels", root_path, class: "green-link" %>
+      </div>
         <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header d-flex justify-content-center" style= "backgournd-color: black">
-                  <h2 class="form-title" id="staticBackdropLabel" style= "text-align:center">Send a booking request</h2>
+                  <h4>Please select your rental period</h4>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 <div class="container">
                   <div class="new-lists">
-                    <div class="new-list" style="mb:5% mt:5%">
-                      <h4>Please select your rental period</h4>
+                    <div class="new-list mt-3" style="mb:5% mt:5%">
+
                         <%= simple_form_for [ @jewel, @booking ] do |f| %>
                           <%= f.input :starting_date, as: :date, html5: true %>
                           <%= f.input :ending_date, as: :date, html5: true  %>
-                          <%= f.submit "Book now", class: "btn btn-secondary" %>
+                          <%= f.button :submit, "Book now", class: 'btn-primary w-100 mt-4' %>
                         <% end %>
                       </div>
                     </div>
