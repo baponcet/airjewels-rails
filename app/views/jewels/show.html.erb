@@ -1,12 +1,13 @@
 <div class="container" style= "margin-top:2%">
-<h1><%= @jewel.category%></h1>
-  <div class="row" style= "margin-top: 2% color:gray">
-
-
-<%= link_to "Edit this jewel", edit_jewel_path(@jewel) if policy(@jewel).edit?%>
-<% if policy(@jewel).destroy? %>
-  <%= link_to "Delete", jewel_path(@jewel), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-<% end %>
+<div class= "d-flex justify-content-between margin-bottom: 5% ">
+  <h1><%= @jewel.category%></h1>
+  <%= link_to "Edit this jewel", edit_jewel_path(@jewel) if policy(@jewel).edit?%>
+  <% if policy(@jewel).destroy? %>
+    <%= link_to "Delete", jewel_path(@jewel), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <% end %>
+  <p style= "color: green"><strong><%= link_to "All our jewels", jewels_path %></strong></p>
+  </div>
+  <div class="row" style= "margin-top: 5% color:gray">
 
       <div class="col d-flex" style="justify-items:center">
          <%if @jewel.photos.length > 1%>
@@ -44,20 +45,23 @@
         <p><%= @jewel.comment %></p>
         <br>
       <div class="col d-flex justify-content-between">
-        <%= link_to "Book now", new_jewel_booking_path(@jewel), class: "btn-primary" %>
+        <%#= link_to "Book now", new_jewel_booking_path(@jewel), class: "btn-primary" %>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+           Book
+        </button>
         <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Booking</h5>
+                <div class="modal-header d-flex justify-content-center" style= "backgournd-color: black">
+                  <h2 class="form-title" id="staticBackdropLabel" style= "text-align:center">Send a booking request</h2>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 <div class="container">
                   <div class="new-lists">
-                    <div class="new-list">
-                      <h1>Book <strong>jewels</strong> !</h1>
+                    <div class="new-list" style="mb:5% mt:5%">
+                      <h4>Please select your rental period</h4>
                         <%= simple_form_for [ @jewel, @booking ] do |f| %>
                           <%= f.input :starting_date, as: :date, html5: true %>
                           <%= f.input :ending_date, as: :date, html5: true  %>
@@ -70,11 +74,6 @@
               </div>
             </div>
           </div>
-        <h4><strong><%= link_to "All our jewels", jewels_path, class: "badge" %></strong></h4>
-        <%= link_to "Edit this jewel", edit_jewel_path(@jewel) if policy(@jewel).edit?%>
-        <% if policy(@jewel).destroy? %>
-          <%= link_to "Delete", jewel_path(@jewel), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        <% end %>
       </div>
     </div>
     </div>
