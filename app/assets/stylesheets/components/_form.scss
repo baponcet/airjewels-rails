@@ -12,3 +12,10 @@
 .bg-title h2 {
   font-weight: bold;
 }
+
+.green-link {
+  color: $primary-green;
+  &:hover {
+    color: $primary-hover-green
+  }
+}
