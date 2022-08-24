@@ -9,14 +9,33 @@
 User.destroy_all
 Jewel.destroy_all
 
-user1 = User.create(email: 'seb.vill@gmail.com', first_name: 'Sebastien', last_name: 'VILLEBRUN', password: 'somepassword',
-            password_confirmation: 'somepassword', admin: true)
-user2 = User.create(email: 'ba.po@gmail.com', first_name: 'Baptiste', last_name: 'PONCET', password: 'somepassword',
-            password_confirmation: 'somepassword', admin: true)
-user3 = User.create(email: 'sacha.go@gmail.com', first_name: 'Sacha', last_name: 'GOTAINER', password: 'somepassword',
-            password_confirmation: 'somepassword', admin: false)
-user4 = User.create(email: 'fa.shah@gmail.com', first_name: 'Fariha', last_name: 'SHAH', password: 'somepassword',
-            password_confirmation: 'somepassword', admin: false)
+user1 = User.new(email: 'seb.vill@gmail.com', first_name: 'Sebastien', last_name: 'VILLEBRUN', password: 'somepassword',
+                    password_confirmation: 'somepassword',
+                    admin: true)
+avatar1 = URI.open("https://ca.slack-edge.com/T02NE0241-U03NK7993ST-f2719ded36c6-512")
+user1.photo.attach(io: avatar1, filename: 'myface', content_type: "image/jpg")
+user1.save!
+
+user2 = User.new(email: 'ba.po@gmail.com', first_name: 'Baptiste', last_name: 'PONCET', password: 'somepassword',
+                    password_confirmation: 'somepassword',
+                    admin: true)
+avatar2 = URI.open("https://ca.slack-edge.com/T02NE0241-U03NRPQCG1F-119a57eec9f6-512")
+user2.photo.attach(io: avatar2, filename: 'myface', content_type: "image/jpg")
+user2.save!
+
+user3 = User.new(email: 'sacha.go@gmail.com', first_name: 'Sacha', last_name: 'GOTAINER', password: 'somepassword',
+                    password_confirmation: 'somepassword',
+                    admin: false)
+avatar3 = URI.open("https://ca.slack-edge.com/T02NE0241-U03NA1WF0TX-dff6dafc9e44-512")
+user3.photo.attach(io: avatar3, filename: 'myface', content_type: "image/jpg")
+user3.save!
+
+user4 = User.new(email: 'fa.shah@gmail.com', first_name: 'Fariha', last_name: 'SHAH', password: 'somepassword',
+                    password_confirmation: 'somepassword',
+                    admin: false)
+avatar4 = URI.open("https://ca.slack-edge.com/T02NE0241-U03P6G5NK9P-bdc0ee480f0e-512")
+user4.photo.attach(io: avatar4, filename: 'myface', content_type: "image/jpg")
+user4.save!
 puts "create watch 1"
 watch1 = Jewel.new(name: 'Montre en acier', price_per_day: 50, brand: 'Christian Lacroix', category: 'Watch', user: user1,
                   comment: "Montre Christian Lacroix femmes - CLW213 Si l'univers de Christian Lacroix vous fascine depuis toujours, on parie que cette montre vous fera fondre d'amour ! Niché au coeur d'un boîtier rose gold, son cadran vous transportera sans délai dans des contrées exotiques, celles-là mêmes qui inspirent le couturier français depuis des décennies. Orchidées, fleurs de paradis et palmiers s'y mêlent avec harmonie, pour vous faire rêver et vous transmettre des ondes positives ! Indiquant l'heure au moyen de deux aiguilles et d'une ronde d'index bâtons, cette montre Christian Lacroix pour femmes remplit sa mission principale à la perfection. En guise de bracelet, elle s'est laissée séduire par le charme de la maille milanaise, ici d'une incroyable finesse... - mouvement deux aiguilles - cadran décoré de fleurs exotiques - élégant bracelet en maille milanaise - silhouette rose gold féminine et tendance - design emblématique du style coloré de Lacroix")

@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
+  def index
+  @users = User.all
+  end
+
   def home
     @jewels = Jewel.all
   end
@@ -11,4 +15,5 @@ class PagesController < ApplicationController
     # On veut récupérer uniquement les bookings des jewel_id pour lesquels le user_id(dans la table jewel) est current_user.
     @bookings_for_my_jewels = Booking.joins(:jewel).where(jewel: { user: current_user })
   end
+
 end
