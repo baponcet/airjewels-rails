@@ -5,7 +5,7 @@
   <% if policy(@jewel).destroy? %>
     <%= link_to "Delete", jewel_path(@jewel), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   <% end %>
-  <p style= "color: green"><strong><%= link_to "All our jewels", jewels_path %></strong></p>
+  <p style= "color: green"><strong><%= link_to "All our jewels", root_path %></strong></p>
   </div>
   <div class="row" style= "margin-top: 5% color:gray">
 
@@ -73,7 +73,7 @@
                 </div>
               </div>
             </div>
-          </div>
+         </div>
       </div>
     </div>
     </div>
