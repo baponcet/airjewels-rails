@@ -14,7 +14,6 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.user = @user
     @booking.jewel = @jewel
-    @booking.save!
     authorize @booking
     if @booking.save
       redirect_to jewel_path(@jewel), notice: "Congrats ! Your booking is validated"
