@@ -1,35 +1,24 @@
 <%= render "shared/banner" %>
 
 <div class="container">
-  <div class="d-flex justify-content-between mt-5 mb-5">
-    <div class="card-category card-category-watch">
-      <p class="heading_medium_font">Watch</p>
-    </div>
-    <div class="card-category card-category-earing">
-      <p class="heading_medium_font">Earing</p>
-    </div>
-    <div class="card-category card-category-bracelet">
-      <p class="heading_medium_font">Bracelet</p>
-    </div>
-    <div class="card-category card-category-ring">
-      <p class="heading_medium_font">Ring</p>
-    </div>
-    <div class="card-category card-category-necklace">
-      <p class="heading_medium_font">Necklace</p>
-    </div>
-  </div>
+  <div class="cards-display-category">
+    <button class="card-category card-category-watch">Watch</button>
+    <button class="card-category card-category-earing">Earing</button>
+    <button class="card-category card-category-bracelet">Bracelet</button>
+    <button class="card-category card-category-ring">Ring</button>
+    <button class="card-category card-category-necklace">Necklace</button>
+</div>
 
   <p class="heading_medium_font">
     Our best jewels available
   </p>
 
-  <div class="row">
+  <div class="cards-display-main">
     <% @jewels.each do |jewel| %>
-      <div class="col-4 mt-5 d-flex justify-content-center">
-        <div class="main-card">
-          <div class="img-card">
-            <%= cl_image_tag(jewel.photos.first.key) %>
-          </div>
+      <div class="main-card">
+        <div class="img-card">
+          <%= cl_image_tag(jewel.photos.first.key) %>
+        </div>
         <div class="card-info">
           <div class="card-info-top">
             <div class="card-text">
@@ -44,11 +33,10 @@
           </div>
           <div class="card-info-bottom">
             <%= link_to 'Learn more', jewel_path(jewel), class: 'btn-secondary paragraph_medium_font' %>
-            <p class="label_font m-0 align-self-end">$<%= jewel.price_per_day %> per day</p>
+            <p class="label_font m-0 align-self-end">€<%= jewel.price_per_day.round %> per day</p>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
   </div>
 </div>
