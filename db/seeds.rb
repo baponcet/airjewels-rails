@@ -115,7 +115,7 @@ ring4.save
 puts "create ring 5"
 ring5 = Jewel.new(name: 'Bague en Or blanc', price_per_day: 100, brand: 'Boucheron', category: 'Ring', user_id: 3,
   comment: "Bague en or blanc et diamants Boucheron Snake Two Finger")
-file16 = URI.open("https://images.vestiairecollective.com/cdn-cgi/image/w=1000,q=80,f=auto,/produit/11961031-1_1.jpg")
+file16 = URI.open("https://images.unsplash.com/photo-1598560917807-1bae44bd2be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80")
 ring5.photos.attach(io: file16, filename: "Boucheron.jpg", content_type: "image/jpg")
 ring5.save
 puts "create earrings 1"
@@ -127,19 +127,19 @@ earrings1.save
 puts "create earrings 2"
 earrings2 = Jewel.new(name: 'BOUCLES D’OREILLES PERLES YSL EN MÉTAL', price_per_day: 50, brand: 'Yves Saint Laurent', category: 'Earring', user_id: 4,
   comment: "PAIRE DE BOUCLES D’OREILLES PERLES, PETITE ET GRANDE, ORNÉES D’UN MONOGRAMME YSL")
-file18 = URI.open("https://saint-laurent.dam.kering.com/m/32bce016c72c2026/eCom-691563Y15269018_A.jpg?v=4")
+file18 = URI.open("https://images.unsplash.com/photo-1615197419962-90f21da0956d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
 earrings2.photos.attach(io: file18, filename: "YSL.jpg", content_type: "image/jpg")
 earrings2.save
 puts "create earrings 3"
 earrings3 = Jewel.new(name: 'Boucles en Or', price_per_day: 60, brand: 'Versace', category: 'Earring', user_id: 1,
   comment: "Petites boucles en or à clous.")
-file18 = URI.open("https://img01.ztat.net/article/spp-media-p1/f8ec5d36a84238e8b42be68fe90f71cc/85de6496628042aab9a9417fd45b6176.jpg?imwidth=1800&imformat=jpg-progressive")
+file18 = URI.open("https://images.unsplash.com/photo-1588444650700-fd887f15a9e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
 earrings3.photos.attach(io: file18, filename: "Versace.jpg", content_type: "image/jpg")
 earrings3.save
 puts "create earrings 4"
 earrings4 = Jewel.new(name: "Boucles d'oreilles Olympe", price_per_day: 80, brand: 'Hermes', category: 'Earring', user_id: 2,
   comment: "Boucles d'oreilles en lézard Niloticus lisse. Finition plaqué or rose.")
-file19 = URI.open("https://assets.hermes.com/is/image/hermesproduct/boucles-d-oreilles-olympe--081896CD17-worn-1-0-0-1600-1600-q99_b.jpg")
+file19 = URI.open("https://images.unsplash.com/photo-1603974372039-adc49044b6bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1934&q=80")
 earrings4.photos.attach(io: file19, filename: "Hermes.jpg", content_type: "image/jpg")
 earrings4.save
 puts "create earrings 5"
