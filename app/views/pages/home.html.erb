@@ -33,7 +33,7 @@
           </div>
           <div class="card-info-bottom">
             <%= link_to 'Learn more', jewel_path(jewel), class: 'btn-secondary paragraph_medium_font' %>
-            <p class="label_font m-0 align-self-end">€<%= jewel.price_per_day %> per day</p>
+            <p class="label_font m-0 align-self-end">€<%= jewel.price_per_day.round %> per day</p>
           </div>
         </div>
       </div>

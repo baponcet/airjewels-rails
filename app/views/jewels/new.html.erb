@@ -1,10 +1,22 @@
-<h1>What jewel would you like to rent?</h1>
-<%= simple_form_for(@jewel) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :price_per_day %>
-  <%= f.input :brand %>
-  <%= f.input :category, collection: ['Ring', 'Earring', 'Necklace', 'Bracelet', 'Watch'] %>
-  <%= f.input :comment %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
+<div class="container w-50">
+  <div class="bg-form border-radius">
+    <div class="text-white p-3 bg-title">
+      <h2 class="text-center m-0">What jewel would you like to rent?</h2>
+    </div>
+    <div class="p-3">
+      <%= simple_form_for(@jewel) do |f| %>
+        <div class="form-inputs mt-3">
+          <%= f.input :name %>
+          <%= f.input :price_per_day %>
+          <%= f.input :brand %>
+          <%= f.input :category, collection: ['Ring', 'Earring', 'Necklace', 'Bracelet', 'Watch'] %>
+          <%= f.input :comment %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        </div>
+        <div class="form-actions text-center">
+          <%= f.button :submit, "Create jewel", class: 'btn-primary w-100' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
