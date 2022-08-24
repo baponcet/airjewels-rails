@@ -10,24 +10,6 @@
             <%= f.input :ending_date, as: :string, input_html: { class: 'd-none', data: { flatpickr_target: 'endingDateInput' } } %>
             <%= f.submit 'Book now!', class: 'btn btn-primary' %>
         <% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <%= simple_form_for [ @jewel, @booking ] do |f| %>
-        <%= f.input :starting_date, as: :date, html5: true %>
-        <%= f.input :ending_date, as: :date, html5: true  %>
-        <%= f.submit "Submit", class: "btn btn-secondary" %>
-      <% end %>
     </div>
   </div>
 </div>
