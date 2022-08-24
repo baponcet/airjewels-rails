@@ -27,7 +27,11 @@ puts "create watch 2"
 watch2 = Jewel.new(name: 'Milgauss Blue Dial 2022', price_per_day: 300, brand: 'Rolex', category: 'Watch', user: user3,
   comment: "Conçue en 1956 pour répondre aux besoins des ingénieurs et des scientifiques, l’Oyster Perpetual Milgauss est une montre pionnière dans la résistance aux champs magnétiques. Elle est capable de résister à des champs magnétiques d’une ampleur de 1 000 gauss, d’où son nom. Montre unique en son genre, la Milgauss souligne les liens historiques qui unissent Rolex à la recherche scientifique.")
 file6 = URI.open("https://www.vintagecrownitaly.com/wp-content/uploads/2022/03/8CCC3E04-0DC3-4051-AFE4-F2226F2A39E0_1_105_c.jpeg")
+filex = URI.open("https://www.41watch.com/10365-thickbox_default/rolex-milgauss-116400gv-z-blue-2022.jpg")
+filey = URI.open("https://www.kleenedelmetalen.nl/wp-content/uploads/2022/02/116400GV-Rolex-Oyster-Perpetual-Milgauss-Steel-Green-Glass-40-mm-5.jpeg")
 watch2.photos.attach(io: file6, filename: "Milgauss.jpg", content_type: "image/jpg")
+watch2.photos.attach(io: filex, filename: "Milgauss2.jpg", content_type: "image/jpg")
+watch2.photos.attach(io: filey, filename: "Milgauss3.jpg", content_type: "image/jpg")
 watch2.save!
 puts "create watch 3"
 watch3 = Jewel.new(name: 'Code 11.59', price_per_day: 250, brand: 'Audemars Piguet', category: 'Watch', user: user2,
