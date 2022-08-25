@@ -7,21 +7,22 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <div class="search-bar">
+      <%= form_with url: jewels_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: 'search-text',
+          placeholder: "Find a jewel"%>
+          <%= button_tag type: 'submit', class: "button-search", id: "register-button" do %>
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <% end %>
+      <% end %>
+    </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
       <ul class="navbar-nav me-auto">
-        <li style= "width: 400px">
-          <%= form_with url: jewels_path, method: :get, class: "d-flex" do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Find a jewel"%>
-              <%= button_tag type: 'submit', class: "btn primary", id: "register-button" do %>
-              <i class="fa-solid fa-magnifying-glass"></i>
-              <% end %>
-          <% end %>
-        </li>
-          <li class="align-self-center">
+          <li class="align-self-center px-4">
             <%= link_to "Rent out jewels", new_jewel_path, class: "btn-secondary-light paragraph_medium_font" %>
           </li>
         <% if user_signed_in? %>

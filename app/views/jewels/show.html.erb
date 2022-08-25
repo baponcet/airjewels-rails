@@ -1,9 +1,6 @@
 <div class="container" style= "margin-top:2%">
   <div class="d-flex align-items-center">
-    <div class="me-3">
-      <%= image_tag "#{@jewel.user.photo.url}", class: "avatar" %>
-    </div>
-    <p class="m-0 fs-3"><strong><%= @jewel.user.first_name %> <%= @jewel.user.last_name.chr %>.</strong> is renting :</p>
+
   </div>
 
 
@@ -46,6 +43,10 @@
         <h1 class="pb-3 heading_medium_font"><%= @jewel.name %></h1>
         <h2 class="heading_small_font"><%= @jewel.brand %></h2>
         <p class="pb-1 paragraph_medium_font">€<%=  @jewel.price_per_day.round %> / day</h3>
+        <div class="d-flex align-items-center mb-3 mt-1">
+          <%= image_tag "#{@jewel.user.photo.url}", class: "avatar" %>
+          <p class="m-0 px-2"><%= @jewel.user.first_name %> <%= @jewel.user.last_name.chr %></p>
+        </div>
         <p class="flex-grow-1"><%= @jewel.comment %></p>
       </div>
       <div class="d-flex justify-content-between align-items-end w-100">

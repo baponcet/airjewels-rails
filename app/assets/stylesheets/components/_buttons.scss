@@ -50,13 +50,10 @@
 .badge {
   padding: 5px 15px;
   border-radius: $border-radius-badge;
-  background-color: $background-grey;
-  color: $font-black;
+  background-color: #c19b49;
+  color: white;
   text-decoration: none;
   transition: 0.2s;
   font-weight: 600;
   font-size: 14px;
-  .canceled {
-    color: red;
-  }
 }
