@@ -14,8 +14,12 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
-  def update_status?
-    true
+  def accept_booking?
+    record.jewel.user == user
+  end
+
+  def cancel_booking?
+    record.user == user || record.jewel.user == User
   end
 
   def total_price
