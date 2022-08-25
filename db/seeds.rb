@@ -186,8 +186,8 @@ necklace2.photos.attach(io: file22, filename: "Vcleef.jpg", content_type: "image
 necklace2.save!
 puts "create necklace 3"
 necklace3 = Jewel.new(name: "Diva's Dream necklace", price_per_day: 200, brand: 'Bulgari', category: 'Necklace', user: user2,
-  comment: "Earrings in 18 carat gold (750/1000) and enamel Opera Tulle.")
-file23 = URI.open("https://media2.bulgari.com/f_auto,q_auto,c_pad,h_520,w_520/production/dw8e6e0848/images/images/469631.png")
+  comment: "Diva pink gold necklace with pavé diamonds.")
+file23 = URI.open("https://fecarotta-com.cdn-immedia.net/wp-content/uploads/2018/10/CL857315.png")
 necklace3.photos.attach(io: file23, filename: "Bulgari.jpg", content_type: "image/jpg")
 necklace3.save!
 puts "create necklace 4"
