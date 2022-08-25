@@ -7,7 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 User.destroy_all
-Jewel.destroy_all
 
 user1 = User.new(email: 'seb.vill@gmail.com', first_name: 'Sebastien', last_name: 'VILLEBRUN', password: 'somepassword',
                     password_confirmation: 'somepassword',
