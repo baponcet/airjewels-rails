@@ -4,9 +4,6 @@
 
 import { application } from "./application"
 
-import CategoryBtnController from "./category_btn_controller"
-application.register("category-btn", CategoryBtnController)
-
 import DashboardController from "./dashboard_controller"
 application.register("dashboard", DashboardController)
 
