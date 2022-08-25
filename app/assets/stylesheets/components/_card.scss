@@ -64,6 +64,11 @@
   border-radius: $border-radius-buttons;
   overflow: hidden;
   box-shadow: 0px 0px 20px rgba($color: black, $alpha: 0.1);
+  &:hover {
+    .overlay-img {
+      background-color: rgba($color: #000000, $alpha: 0.05);
+    }
+  }
 }
 
 .img-card {
@@ -75,6 +80,16 @@
     object-fit: cover;
     object-position: center;
   }
+  position: relative;
+}
+
+.overlay-img {
+  position: absolute;
+  background-color: rgba($color: black, $alpha: 0.1);
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.2s ease-in-out;
 }
 
 .card-info {
@@ -84,9 +99,6 @@
   flex-direction: column;
   justify-content: space-between;
 }
-
-// .card-info-top {
-// }
 
 .card-text {
   margin-bottom: 20px;
@@ -114,41 +126,56 @@
   border: none;
   color: white;
   padding: 40px 0;
+  position: relative;
+  overflow: hidden;
+  p {
+    z-index: 1;
+    margin: 0;
+    text-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.8);
+  }
+  &:hover {
+    .category-overlay {
+      background-color: rgba($color: #000000, $alpha: 0.5);
+    }
+  }
 }
 
 .card-category-watch {
   background-image: url(https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
-  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
   background-size: cover;
   background-position: center;
 }
 
-.card-category-earing {
+.card-category-earring {
   background-image: url(https://images.unsplash.com/photo-1630019852942-f89202989a59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=746&q=80);
-  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
   background-size: cover;
   background-position: center;
 }
 
 .card-category-bracelet {
   background-image: url(https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
-  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
   background-size: cover;
   background-position: center;
 }
 
 .card-category-ring {
   background-image: url(https://images.unsplash.com/photo-1586104195538-050b9f74f58e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
-  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
   background-size: cover;
   background-position: center;
 }
 
 .card-category-necklace {
   background-image: url(https://images.unsplash.com/photo-1601821765780-754fa98637c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80);
-  box-shadow:inset 0 0 0 2000px rgba($color: #000000, $alpha: 0.4);
   background-size: cover;
   background-position: center;
+}
+
+.category-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba($color: #000000, $alpha: 0.3);
+  transition: 0.2s ease-in-out;
 }
 
 // Cards container

@@ -39,6 +39,10 @@ body {
   object-fit: cover;
 }
 
+.primary-green {
+  color: $primary-green;
+}
+
 .text-ellipsis{
   text-overflow:ellipsis;
   overflow:hidden;

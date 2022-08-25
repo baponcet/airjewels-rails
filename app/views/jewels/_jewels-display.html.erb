@@ -5,11 +5,12 @@
         <div class="main-card">
           <div class="img-card">
             <%= cl_image_tag(jewel.photos.first.key) %>
+            <div class="overlay-img"></div>
           </div>
           <div class="card-info">
             <div class="card-info-top">
               <div class="card-text">
-                <p class="heading_small_font">
+                <p class="heading_small_font primary-green">
                   <%= jewel.name %>
                 </p>
                 <p class="paragraph_small_font text-ellipsis">
