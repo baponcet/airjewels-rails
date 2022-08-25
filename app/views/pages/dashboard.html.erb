@@ -1,15 +1,21 @@
-<h1>Dashboard</h1>
+<div class="container">
+  <h1 class="heading_medium_font">Your bookings</h1>
+  <div class="cards-horizontal-display">
+    <% @bookings_i_made.each do |booking| %>
+      <div class="card-horizontal w-100">
+        <%= cl_image_tag booking.jewel.photos.first.key, height: 150, width: 300, crop: :fill %>
+        <div class="p-4">
+          <h3 class="heading_small_font"><%= booking.jewel.name %></h2>
+          <p class="paragraph_small_font"><%= booking.starting_date.strftime('%d %b') %> - <%= booking.ending_date.strftime('%d %b') %> <%= booking.ending_date.strftime('%Y') %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<h2>Your bookings</h2>
-<% @bookings_i_made.each do |booking| %>
-<h3><%= booking.jewel.name %></h2>
-<p><%= booking.starting_date %></p>
-<p><%= booking.ending_date %></p>
-<% booking.jewel.photos.each do |photo| %>
-<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<% end %>
 
+
+<!--
 <h2>Your jewels</h2>
 <% @jewels.each do |jewel| %>
 <h3><%= jewel.name %></h3>
