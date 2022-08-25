@@ -1,0 +1,19 @@
+.dashboard-nav {
+  padding-top: 2rem;
+  ul {
+    display: flex;
+    padding: 0;
+  }
+  li {
+    margin: 0px;
+    padding-right: 2rem;
+    list-style: none;
+  }
+  .active {
+    font-weight: 700;
+  }
+  a {
+    text-decoration: none;
+    color: $font-black;
+  }
+}
