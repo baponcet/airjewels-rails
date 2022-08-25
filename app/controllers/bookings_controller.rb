@@ -18,9 +18,25 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to jewel_path(@jewel), notice: "Congrats ! Your booking is validated"
     else
-      render :new, status: :unprocessable_entity, notice: "Please put the right dates"
+      render "jewels/show", status: :unprocessable_entity, notice: "Please put the right dates"
     end
   end
+
+  def show
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
+  def update_status
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @user == current_user
+      case @booking.status
+      when "pending"
+        @booking.validated
+      when "validated"
+    end
+end
 
   def booking_params
     params.require(:booking).permit(:starting_date, :ending_date)

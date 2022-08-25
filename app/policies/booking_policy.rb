@@ -10,4 +10,11 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
+  def update_status?
+    true
+  end
 end
