@@ -31,11 +31,17 @@ class PagesController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
   def cancel_booking
     @booking = Booking.find(params[:booking_id])
     authorize @booking
     @booking.canceled!
     @booking.save
     redirect_to dashboard_path
+=======
+  def notifications
+    @bookings = Booking.all
+    @bookings.select { |booking| booking.pending?}.count
+>>>>>>> 433be24dc289cdec0895bace661fa8849935e97e
   end
 end
