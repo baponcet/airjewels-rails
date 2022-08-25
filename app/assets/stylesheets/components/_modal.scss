@@ -1,18 +1,10 @@
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 500px) {
   .modal-dialog {
     position: fixed;
     margin-right: 0 !important;
   }
 }
 
-.modal-dialog {
-  position: fixed;
-  margin: auto;
-  width: 320px;
-  height: 100%;
-  right: 0px;
-  text-align: center;
-}
 .modal-content {
   height: 100%;
 }
