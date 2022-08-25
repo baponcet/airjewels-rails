@@ -4,12 +4,20 @@ class Jewel < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   validates :name, presence: true
-  validates :price_per_day, presence: true
+  validates :price_per_day, :category, :brand, presence: true
   validates :category, inclusion: { in: ['Ring', 'Earring', 'Necklace', 'Bracelet', 'Watch'] }
   validates :photos, presence: true
 
   include PgSearch::Model
+<<<<<<< HEAD
   pg_search_scope :search_by_name_brand_category,
   against: [ :name, :brand, :category ], using: {tsearch: { prefix: true }
+=======
+  pg_search_scope :search_by_name_brand_category, against: %i[name brand category comment], using: {
+    tsearch: { prefix: true }
+  }
+  pg_search_scope :search_btn, against: :category, using: {
+    tsearch: { prefix: true }
+>>>>>>> master
   }
 end
