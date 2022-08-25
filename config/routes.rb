@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: "pages#dashboard", as: :dashboard
   resources :jewels, only: %i[show index new create edit update destroy] do
     resources :bookings, only: %i[new create show]
-    get 'bookings/:id/update_status', to: "bookings#update_status", as: :update_status
+    get '/dashboard/update_status', to: "pages#update_status", as: :update_status
   end
 end
