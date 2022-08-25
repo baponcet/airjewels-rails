@@ -28,7 +28,7 @@
                   <%= booking.ending_date.strftime('%d %b') %> <%= booking.ending_date.strftime('%Y') %>
                 </p>
               </div>
-              <p class="badge label_font"><%= booking.status %></p>
+              <p class="badge label_font canceled"><%= booking.status %></p>
             </div>
             <div class="card-info-bottom">
               <% unless booking.status == 'canceled'  %>
@@ -61,8 +61,8 @@
               <p class="badge label_font"><%= jewel.category %></p>
             </div>
             <div class="card-info-bottom">
-              <%= link_to 'Learn more', dashboard_path, class: 'btn-secondary paragraph_medium_font' %>
-              <p class="label_font m-0 align-self-end">TBD full price</p>
+              <%= link_to 'Details', jewel_path(jewel), class: 'btn-secondary paragraph_medium_font' %>
+              <p class="label_font m-0 align-self-end">€<%= jewel.price_per_day.round %> per day</p>
             </div>
           </div>
         </div>
@@ -85,11 +85,13 @@
                   <%= booking.ending_date.strftime('%d %b') %> <%= booking.ending_date.strftime('%Y') %>
                 </p>
               </div>
-              <p class="badge label_font"><%= booking.jewel.category %></p>
+              <p class="badge label_font canceled"><%= booking.status %></p>
             </div>
             <div class="card-info-bottom">
-              <%= link_to 'Learn more', dashboard_path, class: 'btn-secondary paragraph_medium_font' %>
-              <p class="label_font m-0 align-self-end">TBD full price</p>
+            <% unless booking.status == 'canceled'  %>
+              <%= link_to "Cancel booking", jewel_booking_cancel_booking_path(booking.jewel, booking) %>
+            <% end %>
+              
             </div>
           </div>
         </div>
