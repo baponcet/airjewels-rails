@@ -5,11 +5,11 @@
   <div class="new-lists">
     <div class="new-list">
       <h1>Book <strong>jewels</strong> !</h1>
-      <%= simple_form_for [ @jewel, @booking ] do |f| %>
-        <%= f.input :starting_date, as: :date, html5: true %>
-        <%= f.input :ending_date, as: :date, html5: true  %>
-        <%= f.submit "Submit", class: "btn btn-secondary" %>
-      <% end %>
+        <%= simple_form_for [@jewel, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
+            <%= f.input :starting_date, as: :string, input_html: { data: { flatpickr_target: 'startingDateInput' } } %>
+            <%= f.input :ending_date, as: :string, input_html: { data: { flatpickr_target: 'endingDateInput' } } %>
+            <%= f.submit 'Book now!', class: 'btn btn-primary' %>
+        <% end %>
     </div>
   </div>
 </div>
