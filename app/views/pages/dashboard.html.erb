@@ -7,8 +7,11 @@
       <li>
         <a href="#" data-action="click->dashboard#showJewels"><h2 class="paragraph_medium_font" data-dashboard-target="jewels">Your jewels</h2></a>
       </li>
-      <li>
+      <li class="position-relative">
         <a href="#" data-action="click->dashboard#showRental"><h2 class="paragraph_medium_font" data-dashboard-target="rental">Rental</h2></a>
+        <% unless @notification == 0 %>
+          <button class="position-absolute notifications"><%= @notification %></button>
+        <% end %>
       </li>
     </ul>
     <div class="cards-display-main" data-dashboard-target="bookcards">
