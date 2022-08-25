@@ -8,7 +8,6 @@ export default class extends Controller {
   static targets = [ 'startingDateInput', 'endingDateInput' ]
 
   connect() {
-    console.log('coucou')
     flatpickr(this.startingDateInputTarget, {
       mode: 'range', "plugins": [new rangePlugin({ input: this.endingDateInputTarget})]
     })
