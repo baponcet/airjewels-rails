@@ -17,4 +17,8 @@ class BookingPolicy < ApplicationPolicy
   def update_status?
     true
   end
+
+  def total_price
+    true
+  end
 end
