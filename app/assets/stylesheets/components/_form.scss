@@ -1,5 +1,5 @@
 .bg-form {
-  background-color: $background-grey;
+  background-color: #ebe9e9bd;
   box-shadow: 0px 4px 4px rgba($color: black, $alpha: 0.1);
   border-radius: 8px;
 }
@@ -22,4 +22,9 @@
   &:hover {
     color: $primary-hover-green
   }
+}
+
+.form-actions {
+  margin-top: 25px;
+  margin-bottom: 25px
 }
