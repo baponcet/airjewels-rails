@@ -30,4 +30,12 @@ class PagesController < ApplicationController
       end
     end
   end
+
+  def cancel_booking
+    @booking = Booking.find(params[:booking_id])
+    authorize @booking
+    @booking.canceled!
+    @booking.save
+    redirect_to dashboard_path
+  end
 end

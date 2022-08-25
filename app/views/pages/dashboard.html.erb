@@ -28,10 +28,14 @@
                   <%= booking.ending_date.strftime('%d %b') %> <%= booking.ending_date.strftime('%Y') %>
                 </p>
               </div>
-              <p class="badge label_font"><%= booking.jewel.category %></p>
+              <p class="badge label_font"><%= booking.status %></p>
             </div>
             <div class="card-info-bottom">
-              <%= link_to 'Learn more', dashboard_path, class: 'btn-secondary paragraph_medium_font' %>
+              <% unless booking.status == 'canceled'  %>
+                <%= link_to "Cancel booking", jewel_booking_cancel_booking_path(booking.jewel, booking) %>
+              <% else %>
+                <%= link_to "Book again", jewel_path(booking.jewel) %>
+              <% end %>
               <p class="label_font m-0 align-self-end">TBD full price</p>
             </div>
           </div>
