@@ -7,4 +7,5 @@ class Jewel < ApplicationRecord
   validates :price_per_day, presence: true
   validates :category, inclusion: { in: ['Ring', 'Earring', 'Necklace', 'Bracelet', 'Watch'] }
   validates :photos, presence: true
+
 end
