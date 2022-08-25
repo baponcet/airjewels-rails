@@ -9,9 +9,7 @@ class Jewel < ApplicationRecord
   validates :photos, presence: true
 
   include PgSearch::Model
-    pg_search_scope :search_by_name_brand_category,
-  against: [ :name, :brand, :category ],
-  using: {
-  tsearch: { prefix: true } # <-- now `superman batm` will return something!
+  pg_search_scope :search_by_name_brand_category,
+  against: [ :name, :brand, :category ], using: {tsearch: { prefix: true }
   }
 end
