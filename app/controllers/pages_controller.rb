@@ -30,4 +30,9 @@ class PagesController < ApplicationController
       end
     end
   end
+
+  def notifications
+    @bookings = Booking.all
+    @bookings.select { |booking| booking.pending?}.count
+  end
 end
