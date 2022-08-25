@@ -4,7 +4,7 @@ class JewelsController < ApplicationController
   def index
     @jewels = policy_scope(Jewel)
     if params[:query].present?
-      sql_query = "name ILIKE :query OR brand ILIKE :query OR category ILIKE :query "
+      sql_query = "name ILIKE :query OR brand ILIKE :query OR category ILIKE :query"
       @jewels = Jewel.where(sql_query, query: "%#{params[:query]}%")
     else
       @jewels = Jewel.all

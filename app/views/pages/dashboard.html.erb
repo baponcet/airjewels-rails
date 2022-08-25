@@ -1,30 +1,101 @@
-<div class="container">
-  <h1 class="heading_medium_font">Your bookings</h1>
-  <div class="cards-horizontal-display">
-    <% @bookings_i_made.each do |booking| %>
-      <div class="card-horizontal w-100">
-        <%= cl_image_tag booking.jewel.photos.first.key, height: 150, width: 300, crop: :fill %>
-        <div class="p-4">
-          <h3 class="heading_small_font"><%= booking.jewel.name %></h2>
-          <p class="paragraph_small_font"><%= booking.starting_date.strftime('%d %b') %> - <%= booking.ending_date.strftime('%d %b') %> <%= booking.ending_date.strftime('%Y') %></p>
+<div class="container" data-controller="dashboard">
+  <div class="dashboard-nav">
+    <ul>
+      <li>
+        <a href="#" data-action="click->dashboard#showBookings"><h2 class="paragraph_medium_font active" data-dashboard-target="bookings">Your bookings</h2></a>
+      </li>
+      <li>
+        <a href="#" data-action="click->dashboard#showJewels"><h2 class="paragraph_medium_font" data-dashboard-target="jewels">Your jewels</h2></a>
+      </li>
+      <li>
+        <a href="#" data-action="click->dashboard#showRental"><h2 class="paragraph_medium_font" data-dashboard-target="rental">Rental</h2></a>
+      </li>
+    </ul>
+    <div class="cards-display-main" data-dashboard-target="bookcards">
+      <% @bookings_i_made.each do |booking| %>
+        <div class="main-card">
+          <div class="img-card">
+            <%= cl_image_tag(booking.jewel.photos.first.key) %>
+          </div>
+          <div class="card-info">
+            <div class="card-info-top">
+              <div class="card-text">
+                <p class="heading_small_font">
+                  <%= booking.jewel.name %>
+                </p>
+                <p class="paragraph_small_font text-ellipsis">
+                <%= booking.starting_date.strftime('%d %b') %> -
+                  <%= booking.ending_date.strftime('%d %b') %> <%= booking.ending_date.strftime('%Y') %>
+                </p>
+              </div>
+              <p class="badge label_font"><%= booking.jewel.category %></p>
+            </div>
+            <div class="card-info-bottom">
+              <%= link_to 'Learn more', dashboard_path, class: 'btn-secondary paragraph_medium_font' %>
+              <p class="label_font m-0 align-self-end">TBD full price</p>
+            </div>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <div class="cards-display-main d-none" data-dashboard-target="jewelcards">
+      <% @jewels.each do |jewel| %>
+        <div class="main-card">
+          <div class="img-card">
+            <%= cl_image_tag(jewel.photos.first.key) %>
+          </div>
+          <div class="card-info">
+            <div class="card-info-top">
+              <div class="card-text">
+                <p class="heading_small_font">
+                  <%= jewel.name %>
+                </p>
+                <p class="paragraph_small_font text-ellipsis">
+                  <%= jewel.comment %>
+                </p>
+              </div>
+              <p class="badge label_font"><%= jewel.category %></p>
+            </div>
+            <div class="card-info-bottom">
+              <%= link_to 'Learn more', dashboard_path, class: 'btn-secondary paragraph_medium_font' %>
+              <p class="label_font m-0 align-self-end">TBD full price</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="cards-display-main d-none" data-dashboard-target="rentalcards">
+      <% @bookings_for_my_jewels.each do |booking| %>
+        <div class="main-card">
+          <div class="img-card">
+            <%= cl_image_tag(booking.jewel.photos.first.key) %>
+          </div>
+          <div class="card-info">
+            <div class="card-info-top">
+              <div class="card-text">
+                <p class="heading_small_font">
+                  <%= booking.jewel.name %>
+                </p>
+                <p class="paragraph_small_font text-ellipsis">
+                <%= booking.starting_date.strftime('%d %b') %> -
+                  <%= booking.ending_date.strftime('%d %b') %> <%= booking.ending_date.strftime('%Y') %>
+                </p>
+              </div>
+              <p class="badge label_font"><%= booking.jewel.category %></p>
+            </div>
+            <div class="card-info-bottom">
+              <%= link_to 'Learn more', dashboard_path, class: 'btn-secondary paragraph_medium_font' %>
+              <p class="label_font m-0 align-self-end">TBD full price</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
 
-
 <!--
-<h2>Your jewels</h2>
-<% @jewels.each do |jewel| %>
-<h3><%= jewel.name %></h3>
-<p><%= jewel.brand %></p>
-<p><%= jewel.category %></p>
-<% jewel.photos.each do |photo| %>
-<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<% end %>
 
 <h2>Bookings on your jewels</h2>
 <% @bookings_for_my_jewels.each do |booking| %>
