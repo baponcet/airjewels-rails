@@ -93,20 +93,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-<!--
-
-<h2>Bookings on your jewels</h2>
-<% @bookings_for_my_jewels.each do |booking| %>
-<h3><%= booking.jewel.name %></h2>
-<p><%= booking.starting_date %></p>
-<p><%= booking.ending_date %></p>
-<% booking.jewel.photos do |photo| %>
-<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<% end %>
-
-<p><%= link_to "Back to jewel index", jewels_path %></p>
