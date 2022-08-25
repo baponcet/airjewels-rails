@@ -36,7 +36,7 @@
               <% else %>
                 <%= link_to "Book again", jewel_path(booking.jewel) %>
               <% end %>
-              <p class="label_font m-0 align-self-end">TBD full price</p>
+              <p class="label_font m-0 align-self-end">€ <%= booking.total_price.round %></p>
             </div>
           </div>
         </div>
@@ -88,10 +88,14 @@
               <p class="badge label_font canceled"><%= booking.status %></p>
             </div>
             <div class="card-info-bottom">
-            <% unless booking.status == 'canceled'  %>
-              <%= link_to "Cancel booking", jewel_booking_cancel_booking_path(booking.jewel, booking) %>
+            <% unless booking.status == 'canceled' %>
+              <% if booking.status == 'pending' %>
+                <%= link_to "Decline", jewel_booking_cancel_booking_path(booking.jewel, booking) %>
+                <%= link_to 'Accept', jewel_booking_accept_booking_path(booking.jewel, booking) %>
+                <p class="label_font m-0 align-self-end">€ <%= booking.total_price.round %></p>
+              <% end %>
             <% end %>
-              
+
             </div>
           </div>
         </div>

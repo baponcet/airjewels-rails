@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :jewels, only: %i[show index new create edit update destroy] do
     resources :bookings, only: %i[new create show] do
       get '/dashboard/cancel_booking', to: 'pages#cancel_booking', as: :cancel_booking
-      get '/dashboard/update_status', to: "pages#update_status", as: :update_status
+      get '/dashboard/accept_booking', to: "pages#accept_booking", as: :accept_booking
     end
   end
 end
