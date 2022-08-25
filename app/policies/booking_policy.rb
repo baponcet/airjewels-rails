@@ -18,7 +18,12 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+<<<<<<< HEAD
   def cancel_booking?
     record.user == user || record.jewel.user == user
+=======
+  def total_price
+    true
+>>>>>>> c64ef0cc79dc49be4c07f434c98826eccea93bc8
   end
 end
