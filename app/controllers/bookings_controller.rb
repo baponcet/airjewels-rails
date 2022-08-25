@@ -27,17 +27,6 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
-  def update_status
-    @booking = Booking.find(params[:id])
-    authorize @booking
-    if @user == current_user
-      case @booking.status
-      when "pending"
-        @booking.validated
-      when "validated"
-    end
-end
-
   def booking_params
     params.require(:booking).permit(:starting_date, :ending_date)
   end

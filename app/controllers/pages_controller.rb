@@ -16,4 +16,18 @@ class PagesController < ApplicationController
     @bookings_for_my_jewels = Booking.joins(:jewel).where(jewel: { user: current_user })
   end
 
+  def update_status
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @booking.user_id == @booking.jewel.user_id
+      case @booking.status
+      when "pending"
+        @booking.validated!
+        render :dashboard
+      when "validated"
+        @booking.finished!
+        render :dashboard
+      end
+    end
+  end
 end
