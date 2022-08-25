@@ -40,7 +40,7 @@
           <p><%= @jewel.comment %></p>
         </div>
         <div class="d-flex justify-content-between align-items-end w-100">
-          <%= link_to "All our jewels", root_path, class: "green-link" %>
+          <%= link_to "All our jewels", root_path, class: "btn-secondary" %>
         </div>
       </div>
 
@@ -50,7 +50,7 @@
             <%= f.input :starting_date, as: :string, input_html: { data: { flatpickr_target: 'startingDateInput' } } %>
             <%= f.input :ending_date, as: :string, input_html: { data: { flatpickr_target: 'endingDateInput' } } %>
             <div class="text-center">
-              <%= f.submit 'Book now!', class: 'btn btn-primary' %>
+              <%= f.submit 'Book now !', class: 'btn btn-primary' %>
             </div>
           <% end %>
         </div>
