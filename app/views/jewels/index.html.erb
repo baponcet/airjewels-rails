@@ -1,10 +1,15 @@
-<% @jewels.each do |jewel| %>
-<ul>
-<li>
-<h2><%= link_to jewel.name, jewel_path(jewel) %></h2>
-<h3><%= jewel.brand %></h3>
-<p>Only <%= jewel.price_per_day %> euros per day</p>
-</li>
-</ul>
-<% end %>
-<%= link_to 'Add a jewel', new_jewel_path %>
+<div class="container">
+  <%= render "jewels/category-btn" %>
+
+  <ul>
+    <% @jewels.each do |jewel| %>
+      <li>
+        <h2><%= link_to jewel.name, jewel_path(jewel) %></h2>
+        <h3><%= jewel.brand %></h3>
+        <p>Only <%= jewel.price_per_day %> euros per day</p>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'Add a jewel', new_jewel_path %>
+</div>
