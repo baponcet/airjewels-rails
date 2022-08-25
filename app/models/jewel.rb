@@ -9,10 +9,15 @@ class Jewel < ApplicationRecord
   validates :photos, presence: true
 
   include PgSearch::Model
+<<<<<<< HEAD
+  pg_search_scope :search_by_name_brand_category,
+  against: [ :name, :brand, :category ], using: {tsearch: { prefix: true }
+=======
   pg_search_scope :search_by_name_brand_category, against: %i[name brand category comment], using: {
     tsearch: { prefix: true }
   }
   pg_search_scope :search_btn, against: :category, using: {
     tsearch: { prefix: true }
+>>>>>>> master
   }
 end
