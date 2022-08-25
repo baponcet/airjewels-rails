@@ -1,0 +1,25 @@
+<% @bookings_i_made.each do |booking| %>
+  <div class="main-card">
+    <div class="img-card">
+      <%= cl_image_tag(booking.jewel.photos.first.key) %>
+    </div>
+    <div class="card-info">
+      <div class="card-info-top">
+        <div class="card-text">
+          <p class="heading_small_font">
+            <%= booking.jewel.name %>
+          </p>
+          <p class="paragraph_small_font text-ellipsis">
+          <%= booking.starting_date.strftime('%d %b') %> -
+            <%= booking.ending_date.strftime('%d %b') %> <%= booking.ending_date.strftime('%Y') %>
+          </p>
+        </div>
+        <p class="badge label_font"><%= booking.jewel.category %></p>
+      </div>
+      <div class="card-info-bottom">
+        <%= link_to 'Learn more', dashboard_path, class: 'btn-secondary paragraph_medium_font' %>
+        <p class="label_font m-0 align-self-end">TBD full price</p>
+      </div>
+    </div>
+  </div>
+<% end %>

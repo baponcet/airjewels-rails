@@ -45,7 +45,7 @@ watch1.save!
 puts "create watch 2"
 watch2 = Jewel.new(name: 'Milgauss Blue Dial 2022', price_per_day: 300, brand: 'Rolex', category: 'Watch', user: user3,
   comment: "Conçue en 1956 pour répondre aux besoins des ingénieurs et des scientifiques, l’Oyster Perpetual Milgauss est une montre pionnière dans la résistance aux champs magnétiques. Elle est capable de résister à des champs magnétiques d’une ampleur de 1 000 gauss, d’où son nom. Montre unique en son genre, la Milgauss souligne les liens historiques qui unissent Rolex à la recherche scientifique.")
-file6 = URI.open("https://www.vintagecrownitaly.com/wp-content/uploads/2022/03/8CCC3E04-0DC3-4051-AFE4-F2226F2A39E0_1_105_c.jpeg")
+file6 = URI.open("https://cdn2.chrono24.com/images/uhren/23749536-jkifhb67r0usrfai75i2nr4r-ExtraLarge.jpg")
 filex = URI.open("https://www.41watch.com/10365-thickbox_default/rolex-milgauss-116400gv-z-blue-2022.jpg")
 filey = URI.open("https://www.kleenedelmetalen.nl/wp-content/uploads/2022/02/116400GV-Rolex-Oyster-Perpetual-Milgauss-Steel-Green-Glass-40-mm-5.jpeg")
 watch2.photos.attach(io: file6, filename: "Milgauss.jpg", content_type: "image/jpg")
@@ -83,7 +83,7 @@ bracelet2 = Jewel.new(name: 'Astrale', price_per_day: 100, brand: 'Edenly', cate
   comment: "Un jonc astral constellé de diamants sur tout sa surface, pour un bijou de lumière au poignet.
   Largeur haut: 7mm - largeur bas: 3mm - diamètre: 63mm.
   - 144 diamants : 1.01 carats - Or blanc (18 carats = 750/1000) : 15.66 g.")
-file10 = URI.open("https://img.edenly.com/pt/40/bracelet-or-blanc-18-carats-diamant__5695782_1.png?_gl=1*1y12e22*_gcl_aw*R0NMLjE2NjEyNDc0MDAuQ2owS0NRanc5WkdZQmhDRUFSSXNBRVVYSVRYSFlYVC1zLUlkZU5tTE9raFRKMGtwOHRuN0pkMW9XcW9NRnN0MmZfWk14YTZjNkdIZlVwZ2FBc2s3RUFMd193Y0I.*_ga*NzY3MzI5ODEyLjE2NjEyNDc0MDA.*_ga_8CPY8KXX7V*MTY2MTI0NzM5OS4xLjAuMTY2MTI0NzM5OS42MC4wLjA")
+file10 = URI.open("https://img.edenly.com/diamant/jonc-constellation-astrale-1-rang-diamants-1-24-carat-21-diamants-or-blanc-18-carats__5679294_1-z.jpg?_gl=1*16y0kpj*_ga*MTUzMzgzNjI5Ny4xNjYxNDIzMDQ0*_ga_8CPY8KXX7V*MTY2MTQyMzA0My4xLjAuMTY2MTQyMzA0My42MC4wLjA.")
 bracelet2.photos.attach(io: file10, filename: "Edenly.jpg", content_type: "image/jpg")
 bracelet2.save!
 puts "create bracelet 3"
