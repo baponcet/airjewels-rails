@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     total_price(@booking)
     authorize @booking
     if @booking.save
-      redirect_to jewel_path(@jewel), notice: "Congrats ! Your booking is validated"
+      redirect_to dashboard_path(@jewel), notice: "Congrats ! Your booking is validated"
     else
       render "jewels/show", status: :unprocessable_entity, notice: "Please put the right dates"
     end
