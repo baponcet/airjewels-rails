@@ -20,6 +20,14 @@ class JewelsController < ApplicationController
   end
 
   def show
+    @jewels = policy_scope(Jewel)
+    @markers = @jewels.geocoded.map do |jewel|
+      {
+        lat: jewel.latitude,
+        lng: jewel.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {jewel: jewel})
+      }
+    end
     @user = current_user
     @booking = Booking.new
     authorize @jewel
