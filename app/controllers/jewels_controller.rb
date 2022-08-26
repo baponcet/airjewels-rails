@@ -7,7 +7,7 @@ class JewelsController < ApplicationController
       {
         lat: jewel.latitude,
         lng: jewel.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {jewel: jewel})
+        info_window: render_to_string(partial: "info_window", locals: { jewel: jewel })
       }
     end
     if params[:query].present?
@@ -22,6 +22,7 @@ class JewelsController < ApplicationController
   def show
     @user = current_user
     @booking = Booking.new
+    @review = Review.new
     authorize @jewel
   end
 
