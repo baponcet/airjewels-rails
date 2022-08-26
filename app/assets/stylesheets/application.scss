@@ -39,6 +39,11 @@ body {
   object-fit: cover;
 }
 
+.avatar-small {
+  width: 30px;
+  border-radius: 50%;
+}
+
 .primary-green {
   color: $primary-green;
 }
