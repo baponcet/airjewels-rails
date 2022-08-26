@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @review = Review.new
     @jewel = Jewel.find(params[:jewel_id])
     @booking = Booking.new(booking_params)
     @user = current_user
