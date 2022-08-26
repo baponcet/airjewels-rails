@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :jewels, dependent: :destroy
   has_many :bookings, dependent: :destroy
-  has_many :reveiws, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   validates :first_name, :last_name, presence: true
 end
