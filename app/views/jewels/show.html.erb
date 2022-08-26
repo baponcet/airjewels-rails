@@ -1,10 +1,5 @@
-<div class="container" style= "margin-top:2%">
-  <div class="d-flex align-items-center">
-
-  </div>
-
-
-  <div class="row mt-4">
+<div class="container">
+  <div class="row mt-5">
     <div class="col-4 d-flex" style= "justify-content:center">
       <% if @jewel.photos.length > 1 %>
         <div id="carouselExampleControls-<%= @jewel.id %>" class="carousel slide" data-bs-interval="false" >
@@ -39,34 +34,56 @@
     <% else %>
       <div class="col-5 d-flex flex-column justify-content-between">
     <% end %>
-      <div class="d-flex flex-column h-100">
-        <h1 class="pb-3 heading_medium_font"><%= @jewel.name %></h1>
-        <h2 class="heading_small_font"><%= @jewel.brand %></h2>
-        <p class="pb-1 paragraph_medium_font">€<%=  @jewel.price_per_day.round %> / day</h3>
-        <div class="d-flex align-items-center mb-3 mt-1">
-          <%= image_tag "#{@jewel.user.photo.url}", class: "avatar" %>
-          <p class="m-0 px-2"><%= @jewel.user.first_name %> <%= @jewel.user.last_name.chr %></p>
+        <div class="d-flex flex-column h-100">
+          <h1 class="pb-3 heading_medium_font"><%= @jewel.name %></h1>
+          <h2 class="heading_small_font"><%= @jewel.brand %></h2>
+          <p class="pb-1 paragraph_medium_font">€<%=  @jewel.price_per_day.round %> / day</h3>
+          <div class="d-flex align-items-center mb-3 mt-1">
+            <%= image_tag "#{@jewel.user.photo.url}", class: "avatar" %>
+            <p class="m-0 px-2"><%= @jewel.user.first_name %> <%= @jewel.user.last_name.chr %></p>
+          </div>
+          <p class="flex-grow-1"><%= @jewel.comment %></p>
         </div>
-        <p class="flex-grow-1"><%= @jewel.comment %></p>
+        <div class="d-flex justify-content-between align-items-end w-100">
+          <%= link_to "All our jewels", root_path, class: "btn-secondary" %>
+        </div>
       </div>
-      <div class="d-flex justify-content-between align-items-end w-100">
-        <%= link_to "All our jewels", root_path, class: "btn-secondary" %>
-      </div>
-    </div>
 
-    <div class="col-3">
-      <% unless @jewel.user == current_user %>
-        <div class="d-flex justify-content-center align-items-center p-3">
+      <div class="col-3">
+        <% unless @jewel.user == current_user %>
+          <div class="d-flex justify-content-center align-items-center p-3">
             <%= simple_form_for [@jewel, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
               <%= f.input :starting_date, as: :string, input_html: { data: { flatpickr_target: 'startingDateInput' } } %>
               <%= f.input :ending_date, as: :string, input_html: { data: { flatpickr_target: 'endingDateInput' } } %>
               <div class="text-center">
-              <%= f.submit 'Book now!', class: 'btn btn-primary w-100 mt-2' %>
+                <%= f.submit 'Book now!', class: 'btn btn-primary w-100 mt-2' %>
+              </div>
             <% end %>
-        </div>
-      <% end %>
-    </div>
+          </div>
+        <% end %>
+      </div>
   </div>
+
+  <div>
+    <%= simple_form_for([@jewel, @review]) do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating, wrapper_html: { class: 'd-flex' }, collection: 1..5, as: :radio_buttons %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+
+  <div>
+    <% if @jewel.reviews.blank? %>
+      Be the first to leave a review for <%= @restaurant.name %>
+    <% else %>
+      <% @jewel.reviews.each do |review| %>
+        <div class="d-flex align-items-center mb-3 mt-1">
+          <%= image_tag "#{review.user.photo.url}", class: "avatar" %>
+          <p class="m-0 px-2"><%= review.user.first_name %> <%= review.user.last_name.chr %></p>
+        </div>
+        <p><%= review.content %> <%= review.rating %> </p>
+      <% end %>
+    <% end %>
   </div>
 <div class="mt-5" style="width: 100%; height: 600px;"
   data-controller="map"

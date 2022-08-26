@@ -23,6 +23,7 @@ class JewelsController < ApplicationController
     end
     @user = current_user
     @booking = Booking.new
+    @review = Review.new
     authorize @jewel
   end
 
