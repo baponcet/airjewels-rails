@@ -64,29 +64,33 @@
       </div>
   </div>
 
-  <div>
-    <%= simple_form_for([@jewel, @review]) do |f| %>
-      <%= f.input :content %>
-      <%= f.input :rating, wrapper_html: { class: 'd-flex' }, collection: 1..5, as: :radio_buttons %>
-      <%= f.button :submit %>
-    <% end %>
-  </div>
-
-  <div>
-    <% if @jewel.reviews.blank? %>
-      Be the first to leave a review for <%= @jewel.name %>
-    <% else %>
-      <% @jewel.reviews.each do |review| %>
-        <div class="d-flex align-items-center mb-3 mt-1">
-          <%= image_tag "#{review.user.photo.url}", class: "avatar" %>
-          <p class="m-0 px-2"><%= review.user.first_name %> <%= review.user.last_name.chr %></p>
-        </div>
-        <p><%= review.content %> <%= review.rating %> </p>
+  <div class="row mt-5">
+    <div class="col-6">
+      <p class="heading_medium_font">Reviews</p>
+      <% if @jewel.reviews.blank? %>
+        No review yet for <%= @jewel.name %>
+      <% else %>
+      <div class="card-review">
+        <% @jewel.reviews.each do |review| %>
+          <div class="d-flex align-items-center mb-3 mt-1">
+            <%= image_tag "#{review.user.photo.url}", class: "avatar-small" %>
+            <p class="m-0 px-2 paragraph_small_font"><%= review.user.first_name %> <%= review.user.last_name.chr %></p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p class="m-0"><%= review.content %></p>
+            <p class="m-0"><%= review.rating %> / 5</p>
+          </div>
+        <% end %>
+      </div>
       <% end %>
-    <% end %>
+    </div>
+    <div class="col-6">
+      <p class="heading_medium_font">Location</p>
+      <div style="width: 100%; height: 600px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
   </div>
-<div class="mt-5" style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
