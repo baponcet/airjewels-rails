@@ -3,16 +3,16 @@
   <div class="dashboard-nav">
     <ul>
       <li>
-        <a href="#" data-action="click->dashboard#showBookings"><h2 class="paragraph_medium_font active" data-dashboard-target="bookings">Your bookings</h2></a>
+        <button class="button-no-show" data-action="click->dashboard#showBookings"><h2 class="paragraph_medium_font active" data-dashboard-target="bookings">Your bookings</h2></button>
       </li>
       <li class="position-relative">
-        <a href="#" data-action="click->dashboard#showRental"><h2 class="paragraph_medium_font" data-dashboard-target="rental">Requests</h2></a>
+        <button class="button-no-show" data-action="click->dashboard#showRental"><h2 class="paragraph_medium_font" data-dashboard-target="rental">Requests</h2></button>
         <% unless @notification == 0 %>
           <button class="position-absolute notifications"><%= @notification %></button>
         <% end %>
       </li>
       <li>
-        <a href="#" data-action="click->dashboard#showJewels"><h2 class="paragraph_medium_font" data-dashboard-target="jewels">Your jewels</h2></a>
+        <button class="button-no-show" data-action="click->dashboard#showJewels"><h2 class="paragraph_medium_font" data-dashboard-target="jewels">Your jewels</h2></button>
       </li>
     </ul>
 
