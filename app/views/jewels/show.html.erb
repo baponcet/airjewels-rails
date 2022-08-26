@@ -67,7 +67,7 @@
   <div>
     <%= simple_form_for([@jewel, @review]) do |f| %>
       <%= f.input :content %>
-      <%= f.input :rating %>
+      <%= f.input :rating, wrapper_html: { class: 'd-flex' }, collection: 1..5, as: :radio_buttons %>
       <%= f.button :submit %>
     <% end %>
   </div>
