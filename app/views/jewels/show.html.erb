@@ -74,7 +74,7 @@
 
   <div>
     <% if @jewel.reviews.blank? %>
-      Be the first to leave a review for <%= @restaurant.name %>
+      Be the first to leave a review for <%= @jewel.name %>
     <% else %>
       <% @jewel.reviews.each do |review| %>
         <div class="d-flex align-items-center mb-3 mt-1">
