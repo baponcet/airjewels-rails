@@ -1,7 +1,8 @@
 class Jewel < ApplicationRecord
   belongs_to :user
-  has_many_attached :photos
+  has_many_attached :photos, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   validates :name, presence: true
   validates :price_per_day, :category, :brand, presence: true
