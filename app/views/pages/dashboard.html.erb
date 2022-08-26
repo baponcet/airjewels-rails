@@ -1,33 +1,108 @@
-<h1>Dashboard</h1>
+<div class="container" data-controller="dashboard">
+  <div class="dashboard-nav">
+    <ul>
+      <li>
+        <a href="#" data-action="click->dashboard#showBookings"><h2 class="paragraph_medium_font active" data-dashboard-target="bookings">Your bookings</h2></a>
+      </li>
+      <li>
+        <a href="#" data-action="click->dashboard#showJewels"><h2 class="paragraph_medium_font" data-dashboard-target="jewels">Your jewels</h2></a>
+      </li>
+      <li class="position-relative">
+        <a href="#" data-action="click->dashboard#showRental"><h2 class="paragraph_medium_font" data-dashboard-target="rental">Rental</h2></a>
+        <% unless @notification == 0 %>
+          <button class="position-absolute notifications"><%= @notification %></button>
+        <% end %>
+      </li>
+    </ul>
+    <div class="cards-display-main" data-dashboard-target="bookcards">
+      <% @bookings_i_made.each do |booking| %>
+        <div class="main-card">
+          <div class="img-card">
+            <%= cl_image_tag(booking.jewel.photos.first.key) %>
+          </div>
+          <div class="card-info">
+            <div class="card-info-top">
+              <div class="card-text">
+                <p class="heading_small_font">
+                  <%= booking.jewel.name %>
+                </p>
+                <p class="paragraph_small_font text-ellipsis">
+                <%= booking.starting_date.strftime('%d %b') %> -
+                  <%= booking.ending_date.strftime('%d %b') %> <%= booking.ending_date.strftime('%Y') %>
+                </p>
+              </div>
+              <p class="badge label_font canceled"><%= booking.status %></p>
+            </div>
+            <div class="card-info-bottom">
+              <% unless booking.status == 'canceled'  %>
+                <%= link_to "Cancel booking", jewel_booking_cancel_booking_path(booking.jewel, booking) %>
+              <% else %>
+                <%= link_to "Book again", jewel_path(booking.jewel) %>
+              <% end %>
+              <p class="label_font m-0 align-self-end">€ <%= booking.total_price.round %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="cards-display-main d-none" data-dashboard-target="jewelcards">
+      <% @jewels.each do |jewel| %>
+        <div class="main-card">
+          <div class="img-card">
+            <%= cl_image_tag(jewel.photos.first.key) %>
+          </div>
+          <div class="card-info">
+            <div class="card-info-top">
+              <div class="card-text">
+                <p class="heading_small_font">
+                  <%= jewel.name %>
+                </p>
+                <p class="paragraph_small_font text-ellipsis">
+                  <%= jewel.comment %>
+                </p>
+              </div>
+              <p class="badge label_font"><%= jewel.category %></p>
+            </div>
+            <div class="card-info-bottom">
+              <%= link_to 'Details', jewel_path(jewel), class: 'btn-secondary paragraph_medium_font' %>
+              <p class="label_font m-0 align-self-end">€<%= jewel.price_per_day.round %> per day</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="cards-display-main d-none" data-dashboard-target="rentalcards">
+      <% @bookings_for_my_jewels.each do |booking| %>
+        <div class="main-card">
+          <div class="img-card">
+            <%= cl_image_tag(booking.jewel.photos.first.key) %>
+          </div>
+          <div class="card-info">
+            <div class="card-info-top">
+              <div class="card-text">
+                <p class="heading_small_font">
+                  <%= booking.jewel.name %>
+                </p>
+                <p class="paragraph_small_font text-ellipsis">
+                <%= booking.starting_date.strftime('%d %b') %> -
+                  <%= booking.ending_date.strftime('%d %b') %> <%= booking.ending_date.strftime('%Y') %>
+                </p>
+              </div>
+              <p class="badge label_font canceled"><%= booking.status %></p>
+            </div>
+            <div class="card-info-bottom">
+            <% unless booking.status == 'canceled' %>
+              <% if booking.status == 'pending' %>
+                <%= link_to "Decline", jewel_booking_cancel_booking_path(booking.jewel, booking) %>
+                <%= link_to 'Accept', jewel_booking_accept_booking_path(booking.jewel, booking) %>
+                <p class="label_font m-0 align-self-end">€ <%= booking.total_price.round %></p>
+              <% end %>
+            <% end %>
 
-<h2>Your bookings</h2>
-<% @bookings_i_made.each do |booking| %>
-<h3><%= booking.jewel.name %></h2>
-<p><%= booking.starting_date %></p>
-<p><%= booking.ending_date %></p>
-<% booking.jewel.photos.each do |photo| %>
-<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<% end %>
-
-<h2>Your jewels</h2>
-<% @jewels.each do |jewel| %>
-<h3><%= jewel.name %></h3>
-<p><%= jewel.brand %></p>
-<p><%= jewel.category %></p>
-<% jewel.photos.each do |photo| %>
-<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<% end %>
-
-<h2>Bookings on your jewels</h2>
-<% @bookings_for_my_jewels.each do |booking| %>
-<h3><%= booking.jewel.name %></h2>
-<p><%= booking.starting_date %></p>
-<p><%= booking.ending_date %></p>
-<% booking.jewel.photos do |photo| %>
-<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<% end %>
-
-<p><%= link_to "Back to jewel index", jewels_path %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

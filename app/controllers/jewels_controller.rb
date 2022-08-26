@@ -3,6 +3,20 @@ class JewelsController < ApplicationController
 
   def index
     @jewels = policy_scope(Jewel)
+    @markers = @jewels.geocoded.map do |jewel|
+      {
+        lat: jewel.latitude,
+        lng: jewel.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {jewel: jewel})
+      }
+    end
+    if params[:query].present?
+      @jewels = Jewel.search_by_name_brand_category(params[:query])
+    elsif params[:category].present?
+      @jewels = Jewel.search_btn(params[:category])
+    else
+      @jewels = Jewel.all
+    end
   end
 
   def show

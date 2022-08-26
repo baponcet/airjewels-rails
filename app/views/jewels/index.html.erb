@@ -1,11 +1,10 @@
-<% @jewels.each do |jewel| %>
-<ul>
-<li>
-<h2><%= link_to jewel.name, jewel_path(jewel) %></h2>
-<h3><%= jewel.brand %></h3>
-<p>Only <%= jewel.price_per_day %> euros per day</p>
-</li>
-</ul>
-<% end %>
+<div class="container">
+  <%= render "jewels/category-btn" %>
 
-<%= link_to 'Add a jewel', new_jewel_path %>
+  <%= render "jewels/jewels-display" %>
+</div>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

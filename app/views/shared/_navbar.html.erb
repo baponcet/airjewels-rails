@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+  <div class="container container-fluid">
     <%= link_to "/", class: "navbar-brand" do %>
       <p id="logo">AirJewels</p>
     <% end %>
@@ -7,15 +7,27 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <div class="search-bar">
+      <%= form_with url: jewels_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: 'search-text',
+          placeholder: "Find a jewel"%>
+          <%= button_tag type: 'submit', class: "button-search", id: "register-button" do %>
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <% end %>
+      <% end %>
+    </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
       <ul class="navbar-nav me-auto">
-          <li class="align-self-center">
-            <%= link_to "Rent jewels", new_jewel_path, class: "btn-secondary-light paragraph_medium_font" %>
+          <li class="align-self-center px-4">
+            <%= link_to "Rent out jewels", new_jewel_path, class: "btn-secondary-light paragraph_medium_font" %>
           </li>
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
-            <%= image_tag "https://ca.slack-edge.com/T02NE0241-U03NK7993ST-f2719ded36c6-512", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "#{current_user.photo.url}", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My dashboard", dashboard_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>

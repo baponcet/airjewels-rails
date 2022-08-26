@@ -1,0 +1,30 @@
+<div class="cards-display-main">
+  <% @jewels.each do |jewel| %>
+    <% unless jewel.user == current_user %>
+      <%= link_to jewel_path(jewel) do %>
+        <div class="main-card">
+          <div class="img-card">
+            <%= cl_image_tag(jewel.photos.first.key) %>
+            <div class="overlay-img"></div>
+          </div>
+          <div class="card-info">
+            <div class="card-info-top">
+              <div class="card-text">
+                <p class="heading_small_font primary-green">
+                  <%= jewel.name %>
+                </p>
+                <p class="paragraph_small_font text-ellipsis">
+                <%= jewel.comment %>
+                </p>
+              </div>
+            </div>
+            <div class="card-info-bottom">
+              <p class="badge label_font m-0"><%= jewel.category %></p>
+              <p class="label_font m-0 align-self-end">€<%= jewel.price_per_day.round %> / day</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,42 +1,12 @@
 <%= render "shared/banner" %>
 
 <div class="container">
-  <div class="cards-display-category">
-    <button class="card-category card-category-watch">Watch</button>
-    <button class="card-category card-category-earing">Earing</button>
-    <button class="card-category card-category-bracelet">Bracelet</button>
-    <button class="card-category card-category-ring">Ring</button>
-    <button class="card-category card-category-necklace">Necklace</button>
-</div>
+
+  <%= render "jewels/category-btn" %>
 
   <p class="heading_medium_font">
     Our best jewels available
   </p>
 
-  <div class="cards-display-main">
-    <% @jewels.each do |jewel| %>
-      <div class="main-card">
-        <div class="img-card">
-          <%= cl_image_tag(jewel.photos.first.key) %>
-        </div>
-        <div class="card-info">
-          <div class="card-info-top">
-            <div class="card-text">
-              <p class="heading_small_font">
-                <%= jewel.name %>
-              </p>
-              <p class="paragraph_small_font text-ellipsis">
-              <%= jewel.comment %>
-              </p>
-            </div>
-            <p class="badge label_font"><%= jewel.category %></p>
-          </div>
-          <div class="card-info-bottom">
-            <%= link_to 'Learn more', jewel_path(jewel), class: 'btn-secondary paragraph_medium_font' %>
-            <p class="label_font m-0 align-self-end">€<%= jewel.price_per_day.round %> per day</p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <%= render "jewels/jewels-display" %>
 </div>
