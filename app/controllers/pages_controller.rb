@@ -36,6 +36,6 @@ class PagesController < ApplicationController
 
   def notifications
     @bookings = Booking.joins(:jewel).where(jewel: { user: current_user })
-    @bookings.select { |booking| booking.pending? }.count
+    @bookings.select(&:pending?).count
   end
 end

@@ -17,7 +17,7 @@ class JewelsController < ApplicationController
     @markers = [{
       lat: @jewel.latitude,
       lng: @jewel.longitude,
-      info_window: render_to_string(partial: "info_window", locals: {jewel: @jewel})
+      info_window: render_to_string(partial: "info_window", locals: { jewel: @jewel })
     }]
     @user = current_user
     @booking = Booking.new
