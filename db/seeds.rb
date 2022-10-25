@@ -113,7 +113,7 @@ bracelet5.save!
 puts "create ring 1"
 ring1 = Jewel.new(address:"18 Rue de Dunkerque, Paris, France", name: 'Rose des vents', price_per_day: 200, brand: 'Dior', category: 'Ring', user: user3,
   comment: "Victoire de Castellane reinterprets Mr. Dior's lucky star, in the form of a Rose of the Winds, an eight-pointed star. For this new open ring, she combines this iconic motif with the sparkling diamond from the Mimirose collection.")
-file12 = URI.open("https://cdn1.lepage.fr/31528-home_default/bague-ouverte-dior-rose-des-vents-en-or-rose-opale-rose-et-diamants.jpg")
+file12 = URI.open("https://www.lepage.fr/31526-large_default/bague-ouverte-dior-rose-des-vents-en-or-rose-opale-rose-et-diamants.jpg")
 ring1.photos.attach(io: file12, filename: "Dior.jpg", content_type: "image/jpg")
 ring1.save!
 puts "create ring 2"
@@ -195,7 +195,7 @@ necklace4 = Jewel.new(address:"56 Rue de la victoire, Paris, France", name: 'Moo
   comment: "14k rose gold chain,
   9 carat yellow gold pendant,
   Rock Crystal Diamonds.")
-file24 = URI.open("https://www.lagrandeboutique.net/pub/media/catalog/product/cache/49dc40840646e1d9550fa58680a2e2e8/m/o/moon-n2-2.jpg")
+file24 = URI.open("https://images.unsplash.com/photo-1589128777073-263566ae5e4d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
 necklace4.photos.attach(io: file24, filename: "PMonvoisin.jpg", content_type: "image/jpg")
 necklace4.save!
 puts "create necklace 5"
